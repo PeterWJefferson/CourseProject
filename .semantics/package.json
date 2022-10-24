@@ -1,0 +1,93 @@
+{
+  "name": "MPDL-Project",
+  "version": "0.0.0",
+  "description": "Course project for group MPDL (Michaela, Peter, Da'Mon, and Lookman).",
+  "scripts": {
+    "prepare": "cd .. && (npx husky install .semantics/.husky || true) && ([ -f .semantics/.husky/commit-msg ] && echo \"commit-msg file exists\" || node .semantics/node_modules/husky/lib/bin.js add .semantics/.husky/commit-msg \"cd .semantics/ && npx --no -- commitlint --edit $1\") && cd .semantics/",
+    "release": "npx semantic-release --verify-conditions false --verify-release false --ci=false --branches main"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PeterWJefferson/CourseProject.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PeterWJefferson/CourseProject.git/issues"
+  },
+  "homepage": "https://github.com/PeterWJefferson/CourseProject#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
+    "@semantic-release/git": "^10.0.1",
+    "husky": "^8.0.1",
+    "@semantic-release/changelog": "^6.0.1",
+    "@semantic-release/commit-analyzer": "^9.0.2",
+    "@semantic-release/github": "^8.0.6",
+    "@semantic-release/release-notes-generator": "^10.0.3"
+  },
+  "release": {
+    "branches": [
+      "+([0-9])?(.{+([0-9]),x}).x",
+      {
+        "name": "main",
+        "prerelease": false
+      },
+      "next",
+      "next-major",
+      {
+        "name": "beta",
+        "prerelease": true
+      },
+      {
+        "name": "alpha",
+        "prerelease": true
+      }
+    ],
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/changelog",
+      [
+        "@semantic-release/npm",
+        {
+          "npmPublish": false
+        }
+      ],
+      [
+        "@semantic-release/git",
+        {
+          "assets": [
+            "CHANGELOG.md",
+            "../README.md",
+            "../.semantics/*.*",
+            "../.semantics/.husky/**",
+            "../api/*",
+            "../api/src/**",
+            "../ui/*",
+            "../ui/src/**",
+            "../docs"
+          ],
+          "message": "chore(release): ${nextRelease.version} [skip ci]"
+        }
+      ],
+      [
+        "@semantic-release/github",
+        {
+          "assets": [
+            "CHANGELOG.md",
+            "../README.md",
+            "../.semantics/*.*",
+            "../.semantics/.husky/**",
+            "../api/*",
+            "../api/src/**",
+            "../ui/*",
+            "../ui/src/**",
+            "../docs"
+          ],
+          "message": "chore(release): ${nextRelease.version} [skip ci]"
+        }
+      ]
+    ]
+  }
+}
