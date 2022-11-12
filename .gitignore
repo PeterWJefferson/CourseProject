@@ -2,3 +2,4 @@
 **/local/**
 **/dist/**
 **/build/**
+**/__pycache__/**
