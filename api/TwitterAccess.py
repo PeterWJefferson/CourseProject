@@ -51,7 +51,9 @@ class TwitterClient(object):
       tweets = []
   
       try:
-          fetched_tweets = self.api.search(q = query, count = count)
+        #   With this, I get the error: AttributeError: 'API' object has no attribute 'search'. This could be a versioning issue
+        #   fetched_tweets = self.api.search(q = query, count = count)
+          fetched_tweets = self.api.search_tweets(q = query, count = count)
           for tweet in fetched_tweets:
               parsed_tweet = {}
               parsed_tweet['text'] = tweet.text
@@ -62,18 +64,21 @@ class TwitterClient(object):
               else:
                   tweets.append(parsed_tweet)
           return tweets
-  
-      except tweepy.TweepError as e:
+    #   The commented code gave me the error: AttributeError: module 'tweepy' has no attribute 'TweepError'. This could be a versioning issue
+    #   except tweepy.TweepError as e:
+      except tweepy.errors.TweepyException as e:
           print("Error : " + str(e))
 
 def search():
   query = input("What would you like to search on Twitter?\n")
   return query
 
-def main():
+def main(_query):
   api = TwitterClient()
-  query_ = search()
-  tweets = api.get_tweets(query = query_, count = 200)
+  query_ = _query
+#   When count = 200, I get the error: Max retries exceeded with url: /1.1/search/tweets.json
+#   tweets = api.get_tweets(query = query_, count = 200)
+  tweets = api.get_tweets(query = query_, count = 50)
   positive_tweets = [tweet for tweet in tweets if tweet['sentiment'] == 'positive']
   print("Positive tweets percentage: {} %".format(100*len(positive_tweets)/len(tweets)))
 
