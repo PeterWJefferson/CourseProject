@@ -1,0 +1,4 @@
+Consumer_key: 5sK9mQoVQs61wBMoRaj3zePz9
+Consumer_key_secret: cT0cjBDPPW19jRWwBrdyq8pQBjyGD5WKupyChpoXkfilfkljnM
+Auth_token: 1581825231051788289-fyzmkQKX9tq8VFMGNG4YpFteoFgjIf
+Auth_token_secret: D7tMeKKn0aIgZqysSRnhYN7sA8uxsd86tu7qPEgAP8Rok
