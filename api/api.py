@@ -6,6 +6,15 @@ import TwitterAccess
 app = Flask(__name__)# , template_folder='../templates', static_url_path="/")
 
 
+nytimes_user_id = 2244994945
+fox_news_user_id = 1367531
+guardian_user_id = 788524
+msnbc_user_id = 2836421
+politico_user_id = 9300262
+abc_news_user_id = 28785486
+cbs_news_user_id = 15012486
+vice_news_user_id = 1630896181
+
 @app.route('/')
 def index():
     return render_template("index.html")
