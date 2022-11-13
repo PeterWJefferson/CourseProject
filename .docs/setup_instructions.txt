@@ -1,0 +1,10 @@
+1. install flask
+
+2. export the FLASK_APP environment variable to the app.py file:
+  export FLASK_APP=app.py
+
+3. execute flask:
+  flask run
+
+4. open browser to where it is running:
+   http://127.0.0.1:5000/

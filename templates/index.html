@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>CS410 Final Project</title>
+
+    <!-- Link the CSS style file to this HTML page -->
+    <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='css/main.css') }}">
+  </head>
+
+  <body>
+  <!-- Search Box and Button -->
+  <form action="query" method="post">
+    <br>
+    <!-- Search Box -->
+    <input type="text" placeholder="Enter your query here!" name="query_input">
+    <!-- Search Button -->
+    <input type="submit" value="Search" id="search">
+  </form>
+  </body>
+
+</html>
+
+
