@@ -2,7 +2,7 @@ from flask import Flask, request, render_template
 import json
 
 # template_folder is relative to where the main flask run .py file is (/api/app.py)
-app = Flask(__name__)# , template_folder='../templates', static_url_path="/")
+app = Flask(__name__)  # , template_folder='../templates', static_url_path="/")
 
 
 @app.route('/')
@@ -13,6 +13,7 @@ def index():
 @app.route('/query', methods=['POST'])
 def query():
     user_query = request.form['query_input']
+    print(f"USER QUERY: {user_query}")
     return render_template("results.html")
 
 #
