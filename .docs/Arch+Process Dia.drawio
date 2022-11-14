@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e" pages="2">
     <diagram name="Page-1" id="52a04d89-c75d-2922-d76d-85b35f80e030">
-        <mxGraphModel dx="864" dy="519" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="none" math="0" shadow="0">
+        <mxGraphModel dx="1152" dy="493" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="none" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -16,7 +16,7 @@
                 <mxCell id="1fdf3b25b50cf41e-27" style="html=1;labelBackgroundColor=none;startFill=0;startSize=8;endFill=1;endSize=8;fontFamily=Verdana;fontSize=12;" parent="1" source="17472293e6e8944d-30" target="1fdf3b25b50cf41e-1" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="3" value="" style="edgeStyle=none;html=1;startArrow=classic;startFill=1;endArrow=none;endFill=0;" edge="1" parent="1" source="17472293e6e8944d-30" target="CfUMpahbv_ZwyhBGr2wj-11">
+                <mxCell id="3" value="" style="edgeStyle=none;html=1;startArrow=classic;startFill=1;endArrow=none;endFill=0;" parent="1" source="17472293e6e8944d-30" target="CfUMpahbv_ZwyhBGr2wj-11" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="17472293e6e8944d-30" value="User Query Data" style="whiteSpace=wrap;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;align=center;" parent="1" vertex="1">
@@ -52,40 +52,11 @@
                 <mxCell id="r-KkZK2zQZgvtkGGY7jv-7" value="Analyze Query Data using TextBlob" style="text;html=1;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;align=center;" parent="r-KkZK2zQZgvtkGGY7jv-1" vertex="1">
                     <mxGeometry y="26" width="240" height="74" as="geometry"/>
                 </mxCell>
-                <mxCell id="r-KkZK2zQZgvtkGGY7jv-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="r-KkZK2zQZgvtkGGY7jv-5" target="r-KkZK2zQZgvtkGGY7jv-8" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="r-KkZK2zQZgvtkGGY7jv-5" value="Return Tweets by&lt;br&gt;Source/Sentiment/Preference" style="swimlane;html=1;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#e0e0e0;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;swimlaneFillColor=#ffffff;align=center;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12" parent="1" vertex="1">
+                <mxCell id="r-KkZK2zQZgvtkGGY7jv-5" value="Return Tweets by&lt;br&gt;Source/Sentiment" style="swimlane;html=1;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#e0e0e0;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;swimlaneFillColor=#ffffff;align=center;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12" parent="1" vertex="1">
                     <mxGeometry x="450" y="540" width="240" height="105" as="geometry"/>
                 </mxCell>
                 <mxCell id="r-KkZK2zQZgvtkGGY7jv-6" value="Within each object, add the sentiment score for the query sent in by the user" style="text;html=1;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;align=center;" parent="r-KkZK2zQZgvtkGGY7jv-5" vertex="1">
                     <mxGeometry y="26" width="240" height="74" as="geometry"/>
-                </mxCell>
-                <mxCell id="r-KkZK2zQZgvtkGGY7jv-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="r-KkZK2zQZgvtkGGY7jv-8" target="r-KkZK2zQZgvtkGGY7jv-12" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="r-KkZK2zQZgvtkGGY7jv-8" value="User rates tweets" style="swimlane;html=1;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#e0e0e0;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;swimlaneFillColor=#ffffff;align=center;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12" parent="1" vertex="1">
-                    <mxGeometry x="450" y="700" width="240" height="100" as="geometry"/>
-                </mxCell>
-                <mxCell id="r-KkZK2zQZgvtkGGY7jv-9" value="The user will use a like/dislike (or 1-5 star rating) to express approval/disapproval of the source's contents" style="text;html=1;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;align=center;" parent="r-KkZK2zQZgvtkGGY7jv-8" vertex="1">
-                    <mxGeometry y="26" width="240" height="74" as="geometry"/>
-                </mxCell>
-                <mxCell id="r-KkZK2zQZgvtkGGY7jv-12" value="Recommendation" style="swimlane;html=1;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#e0e0e0;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;swimlaneFillColor=#ffffff;align=center;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12" parent="1" vertex="1">
-                    <mxGeometry x="450" y="850" width="240" height="100" as="geometry"/>
-                </mxCell>
-                <mxCell id="r-KkZK2zQZgvtkGGY7jv-13" value="Ranking the sources based on the user ratings of each source's content" style="text;html=1;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;align=center;" parent="r-KkZK2zQZgvtkGGY7jv-12" vertex="1">
-                    <mxGeometry y="26" width="240" height="74" as="geometry"/>
-                </mxCell>
-                <mxCell id="r-KkZK2zQZgvtkGGY7jv-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.338;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.017;entryY=0.716;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="r-KkZK2zQZgvtkGGY7jv-13" target="r-KkZK2zQZgvtkGGY7jv-7" edge="1">
-                    <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="430" y="900" as="sourcePoint"/>
-                        <mxPoint x="410" y="500" as="targetPoint"/>
-                        <Array as="points">
-                            <mxPoint x="450" y="900"/>
-                            <mxPoint x="340" y="900"/>
-                            <mxPoint x="340" y="469"/>
-                        </Array>
-                    </mxGeometry>
                 </mxCell>
                 <mxCell id="r-KkZK2zQZgvtkGGY7jv-24" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=none;startFill=0;endArrow=classic;endFill=1;" parent="1" source="r-KkZK2zQZgvtkGGY7jv-21" target="r-KkZK2zQZgvtkGGY7jv-1" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
@@ -93,10 +64,10 @@
                 <mxCell id="CfUMpahbv_ZwyhBGr2wj-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" parent="1" source="r-KkZK2zQZgvtkGGY7jv-21" target="CfUMpahbv_ZwyhBGr2wj-5" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="r-KkZK2zQZgvtkGGY7jv-21" value="Consolidating Tweets into text&lt;br&gt;&quot;documents&quot;" style="swimlane;html=1;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#e0e0e0;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;swimlaneFillColor=#ffffff;align=center;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12" parent="1" vertex="1">
+                <mxCell id="r-KkZK2zQZgvtkGGY7jv-21" value="Create Corpus (&quot;documents&quot;)" style="swimlane;html=1;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#e0e0e0;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;swimlaneFillColor=#ffffff;align=center;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12" parent="1" vertex="1">
                     <mxGeometry x="380" y="170" width="240" height="100" as="geometry"/>
                 </mxCell>
-                <mxCell id="r-KkZK2zQZgvtkGGY7jv-22" value="Use Twitter Client to retrieve tweets from Twitter API" style="text;html=1;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;align=center;" parent="r-KkZK2zQZgvtkGGY7jv-21" vertex="1">
+                <mxCell id="r-KkZK2zQZgvtkGGY7jv-22" value="Write a line to a file that we can treat like DBLP.txt or test.txt from MP3" style="text;html=1;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;align=center;" parent="r-KkZK2zQZgvtkGGY7jv-21" vertex="1">
                     <mxGeometry y="26" width="240" height="74" as="geometry"/>
                 </mxCell>
                 <mxCell id="CfUMpahbv_ZwyhBGr2wj-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.489;entryY=0.986;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.45;exitY=-0.015;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="CfUMpahbv_ZwyhBGr2wj-5" target="CfUMpahbv_ZwyhBGr2wj-11" edge="1">
