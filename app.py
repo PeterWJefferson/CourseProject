@@ -6,6 +6,23 @@ import TwitterAccess
 app = Flask(__name__)  # , template_folder='../templates', static_url_path="/")
 
 
+nytimes_user_id = 2244994945
+fox_news_user_id = 1367531
+guardian_user_id = 788524
+msnbc_user_id = 2836421
+politico_user_id = 9300262
+abc_news_user_id = 28785486
+cbs_news_user_id = 15012486
+vice_news_user_id = 1630896181
+news_source_ids = [nytimes_user_id,
+    fox_news_user_id, 
+    guardian_user_id, 
+    msnbc_user_id,
+    politico_user_id, 
+    abc_news_user_id, 
+    cbs_news_user_id, 
+    vice_news_user_id]
+
 @app.route('/')
 def index():
     return render_template("index.html")
@@ -18,16 +35,24 @@ def query():
     tweets_to_display = tweets(user_query)
     return render_template("results.html", tweet_list=tweets_to_display)
 
-
 @app.route('/tweets', methods=['GET', 'POST'])
 def tweets(user_query):
     api = TwitterAccess.TwitterClient()
     if request.method == 'POST':
         '''Getting the query results from Twitter and returning it to the api caller'''
-        tweets = api.get_tweets(query=user_query, count=100)
-        positive_tweets = [tweet for tweet in tweets if tweet['sentiment'] == 'positive']
+        tweets = api.get_tweets(query=user_query, count=50)
         return tweets
 
+@app.route('/news', methods=['GET', 'POST'])
+def news_tweets():
+    query = json.loads(request.data)["query"]
+    print('query: %s' % query)
+    api = TwitterAccess.TwitterClient()
+    if request.method == 'POST':
+        return "success"
+        '''Getting the query results from Twitter and returning it to the api caller'''
+        tweets = api.get_tweets_by_ids(query=query, count=50, ids=news_source_ids)
+        return tweets
 
 @app.route('/user/<username>')
 def show_user_profile(username=None):

@@ -28,16 +28,20 @@ def query():
 
 @app.route('/tweets', methods=['GET', 'POST'])
 def tweets():
-    api = TwitterAccess.TwitterClient()
+    twitter_client = TwitterAccess.TwitterClient()
     if request.method == 'POST':
         return login_user()
     elif request.method == 'GET':
         '''Getting the query results from Twitter and returning it to the api caller'''
         query = json.loads(request.data)["query"]
-        tweets = api.get_tweets(query=query, count=100)
+        tweets = twitter_client.get_tweets(query=query, count=100)
         positive_tweets = [tweet for tweet in tweets if tweet['sentiment'] == 'positive']
-        return positive_tweets
-        # return ["positive_tweets"]
+        negative_tweets = [tweet for tweet in tweets if tweet['sentiment'] == 'negative']
+        all_tweets = {
+            "positive": positive_tweets,
+            "negative": negative_tweets
+        }
+        return tweets        
 
 
 @app.route('/user/<username>')

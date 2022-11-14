@@ -70,6 +70,31 @@ class TwitterClient(object):
         except tweepy.errors.TweepyException as e:
             print("Error : " + str(e))
 
+def get_tweets_by_ids(self, query, count=10, id_list=[]):
+        """
+      Main function to fetch tweets and parse them.
+      """
+        tweets = []
+
+        try:
+            # With this, I get the error: AttributeError: 'API' object has no attribute 'search'. This could be a
+            # versioning issue fetched_tweets = self.api.search(q = query, count = count)
+            fetched_tweets = self.api.search_tweets(q=query, count=count, ids=id_list)
+            for tweet in fetched_tweets:
+                parsed_tweet = {}
+                parsed_tweet['text'] = tweet.text
+                parsed_tweet['sentiment'] = self.get_tweet_sentiment(tweet.text)
+                if tweet.retweet_count > 0:
+                    if parsed_tweet not in tweets:
+                        tweets.append(parsed_tweet)
+                else:
+                    tweets.append(parsed_tweet)
+            return tweets
+        # The commented code gave me the error: AttributeError: module 'tweepy' has no attribute 'TweepError'. This
+        # could be a versioning issue except tweepy.TweepError as e:
+        except tweepy.errors.TweepyException as e:
+            print("Error : " + str(e))
+
 
 def search():
     query = input("What would you like to search on Twitter?\n")
