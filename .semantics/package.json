@@ -67,9 +67,7 @@
             "../api/src/**",
             "../ui/*",
             "../ui/src/**",
-            "../docs",
-            "package.json",
-            "package-lock.json"
+            "../docs"
           ],
           "message": "chore(release): ${nextRelease.version} [skip ci]"
         }
@@ -86,9 +84,7 @@
             "../api/src/**",
             "../ui/*",
             "../ui/src/**",
-            "../docs",
-            "package.json",
-            "package-lock.json"
+            "../docs"
           ],
           "message": "chore(release): ${nextRelease.version} [skip ci]"
         }
