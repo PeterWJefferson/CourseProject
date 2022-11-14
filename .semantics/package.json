@@ -4,7 +4,8 @@
   "description": "Course project for group MPDL (Michaela, Peter, Da'Mon, and Lookman).",
   "scripts": {
     "prepare": "cd .. && (npx husky install .semantics/.husky || true) && ([ -f .semantics/.husky/commit-msg ] && echo \"commit-msg file exists\" || node .semantics/node_modules/husky/lib/bin.js add .semantics/.husky/commit-msg \"cd .semantics/ && npx --no -- commitlint --edit $1\") && cd .semantics/",
-    "release": "npx semantic-release --verify-conditions false --verify-release false --ci=false --branches main"
+    "release": "npx semantic-release --verify-conditions false --verify-release false --ci=false --branches main",
+    "dry-run": "npx semantic-release --verify-conditions false --verify-release false --ci=false --branches main --dry-run"
   },
   "repository": {
     "type": "git",
@@ -66,7 +67,9 @@
             "../api/src/**",
             "../ui/*",
             "../ui/src/**",
-            "../docs"
+            "../docs",
+            "package.json",
+            "package-lock.json"
           ],
           "message": "chore(release): ${nextRelease.version} [skip ci]"
         }
@@ -83,7 +86,9 @@
             "../api/src/**",
             "../ui/*",
             "../ui/src/**",
-            "../docs"
+            "../docs",
+            "package.json",
+            "package-lock.json"
           ],
           "message": "chore(release): ${nextRelease.version} [skip ci]"
         }
