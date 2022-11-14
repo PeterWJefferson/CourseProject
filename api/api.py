@@ -14,6 +14,15 @@ politico_user_id = 9300262
 abc_news_user_id = 28785486
 cbs_news_user_id = 15012486
 vice_news_user_id = 1630896181
+news_source_ids = [nytimes_user_id,
+    fox_news_user_id, 
+    guardian_user_id, 
+    msnbc_user_id,
+    politico_user_id, 
+    abc_news_user_id, 
+    cbs_news_user_id, 
+    vice_news_user_id]
+
 
 @app.route('/')
 def index():
@@ -41,7 +50,18 @@ def tweets():
             "positive": positive_tweets,
             "negative": negative_tweets
         }
-        return tweets        
+        return tweets
+
+@app.route('/tweets/news', methods=['GET', 'POST'])
+def news_tweets():
+    query = json.loads(request.data)["query"]
+    print(query)
+    api = TwitterAccess.TwitterClient()
+    if request.method == 'POST':
+        '''Getting the query results from Twitter and returning it to the api caller'''
+        tweets = api.get_tweets_by_ids(query=query, count=50, id_list=news_source_ids)
+        return tweets
+
 
 
 @app.route('/user/<username>')

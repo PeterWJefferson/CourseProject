@@ -80,7 +80,7 @@ class TwitterClient(object):
             try:
                 # With this, I get the error: AttributeError: 'API' object has no attribute 'search'. This could be a
                 # versioning issue fetched_tweets = self.api.search(q = query, count = count)
-                fetched_tweets = self.api.search_tweets(q=query, count=count, ids=id_list)
+                fetched_tweets = self.client.get_tweets(q=query, count=count, ids=id_list)
                 for tweet in fetched_tweets:
                     parsed_tweet = {}
                     parsed_tweet['text'] = tweet.text

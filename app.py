@@ -43,17 +43,17 @@ def tweets(user_query):
         tweets = api.get_tweets(query=user_query, count=50)
         return tweets
 
-@app.route('/news', methods=['GET', 'POST'])
+@app.route('/tweets/news', methods=['GET', 'POST'])
 def news_tweets():
     query = json.loads(request.data)["query"]
-    print('query: %s' % query)
+    print(query)
     api = TwitterAccess.TwitterClient()
     if request.method == 'POST':
-        return "success"
         '''Getting the query results from Twitter and returning it to the api caller'''
-        tweets = api.get_tweets_by_ids(query=query, count=50, ids=news_source_ids)
+        tweets = api.get_tweets_by_ids(query=query, count=50, id_list=news_source_ids)
         return tweets
 
+        
 @app.route('/user/<username>')
 def show_user_profile(username=None):
     # username=None ensures the code run even when no name is provided
