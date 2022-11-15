@@ -71,7 +71,7 @@ class TwitterClient(object):
             print("Error : " + str(e))
 
 
-    def get_tweets_by_ids(self, query, count, user_list=[]):
+    def query_twitter_user(self, query, count, user_list=[]):
             """
         Main function to fetch tweets and parse them.
         """

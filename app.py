@@ -37,7 +37,7 @@ def news_tweets(user_query=None):
     api = TwitterAccess.TwitterClient()
     if request.method == 'POST':
         '''Getting the query results from Twitter and returning it to the api caller'''
-        tweets = api.get_tweets_by_ids(query=query, count=50, user_list=news_sources)
+        tweets = api.query_twitter_user(query=query, count=50, user_list=news_sources)
         return tweets
 
         
