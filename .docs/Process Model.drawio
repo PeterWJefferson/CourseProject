@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e" pages="2">
     <diagram name="Page-1" id="52a04d89-c75d-2922-d76d-85b35f80e030">
-        <mxGraphModel dx="1329" dy="569" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="1">
+        <mxGraphModel dx="1030" dy="729" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="1">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -10,8 +10,8 @@
                         <mxPoint x="149" y="380" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="21ea969265ad0168-30" value="Create new line in text&lt;br&gt;document out of each&lt;br&gt;tweet" style="html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=2;fontFamily=Verdana;fontSize=12;align=center;shape=mxgraph.ios7ui.horLines;" parent="1" vertex="1">
-                    <mxGeometry x="50" y="450" width="190" height="70" as="geometry"/>
+                <mxCell id="21ea969265ad0168-30" value="Output:&lt;br&gt;Persistent Corpus" style="html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=2;fontFamily=Verdana;fontSize=12;align=center;shape=mxgraph.ios7ui.horLines;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="460" width="190" height="70" as="geometry"/>
                 </mxCell>
                 <mxCell id="1fdf3b25b50cf41e-27" style="html=1;labelBackgroundColor=none;startFill=0;startSize=8;endFill=1;endSize=8;fontFamily=Verdana;fontSize=12;" parent="1" source="17472293e6e8944d-30" target="1fdf3b25b50cf41e-1" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
@@ -22,7 +22,7 @@
                 <mxCell id="17472293e6e8944d-30" value="User Query Data" style="whiteSpace=wrap;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;align=center;" parent="1" vertex="1">
                     <mxGeometry x="89" y="39" width="120" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="1fdf3b25b50cf41e-38" style="edgeStyle=elbowEdgeStyle;html=1;labelBackgroundColor=none;startFill=0;startSize=8;endFill=1;endSize=8;fontFamily=Verdana;fontSize=12;rounded=0;" parent="1" source="r-KkZK2zQZgvtkGGY7jv-22" target="21ea969265ad0168-30" edge="1">
+                <mxCell id="1fdf3b25b50cf41e-38" style="edgeStyle=elbowEdgeStyle;html=1;labelBackgroundColor=none;startFill=0;startSize=8;endFill=1;endSize=8;fontFamily=Verdana;fontSize=12;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="r-KkZK2zQZgvtkGGY7jv-22" target="5" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="300" y="260"/>
@@ -35,7 +35,7 @@
                 <mxCell id="r-KkZK2zQZgvtkGGY7jv-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=none;startFill=0;endArrow=classic;endFill=1;" parent="1" source="1fdf3b25b50cf41e-1" target="r-KkZK2zQZgvtkGGY7jv-21" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="1fdf3b25b50cf41e-1" value="Send Query to Twitter" style="swimlane;html=1;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#e0e0e0;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;swimlaneFillColor=#ffffff;align=center;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12" parent="1" vertex="1">
+                <mxCell id="1fdf3b25b50cf41e-1" value="1. Send Query to Twitter" style="swimlane;html=1;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#60a917;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;swimlaneFillColor=#ffffff;align=center;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;strokeColor=#2D7600;fontColor=#ffffff;" parent="1" vertex="1">
                     <mxGeometry x="380" y="15" width="240" height="100" as="geometry"/>
                 </mxCell>
                 <mxCell id="r-KkZK2zQZgvtkGGY7jv-16" value="Use Twitter Client to retrieve tweets from Twitter API" style="text;html=1;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;align=center;" parent="1fdf3b25b50cf41e-1" vertex="1">
@@ -46,41 +46,47 @@
                         <mxPoint x="570" y="545" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="r-KkZK2zQZgvtkGGY7jv-1" value="Sentiment Analysis on Tweets" style="swimlane;html=1;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#e0e0e0;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;swimlaneFillColor=#ffffff;align=center;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12" parent="1" vertex="1">
+                <mxCell id="r-KkZK2zQZgvtkGGY7jv-1" value="3. Sentiment Analysis on Tweets" style="swimlane;html=1;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#60a917;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;swimlaneFillColor=#ffffff;align=center;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;fontColor=#ffffff;strokeColor=#2D7600;" parent="1" vertex="1">
                     <mxGeometry x="450" y="390" width="240" height="100" as="geometry"/>
                 </mxCell>
                 <mxCell id="r-KkZK2zQZgvtkGGY7jv-7" value="Analyze Query Data using TextBlob" style="text;html=1;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;align=center;" parent="r-KkZK2zQZgvtkGGY7jv-1" vertex="1">
                     <mxGeometry y="26" width="240" height="74" as="geometry"/>
                 </mxCell>
-                <mxCell id="r-KkZK2zQZgvtkGGY7jv-5" value="Return Tweets by&lt;br&gt;Source/Sentiment" style="swimlane;html=1;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#e0e0e0;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;swimlaneFillColor=#ffffff;align=center;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12" parent="1" vertex="1">
+                <mxCell id="r-KkZK2zQZgvtkGGY7jv-5" value="4. Return Tweets by&lt;br&gt;Source/Sentiment" style="swimlane;html=1;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#60a917;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;swimlaneFillColor=#ffffff;align=center;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;fontColor=#ffffff;strokeColor=#2D7600;" parent="1" vertex="1">
                     <mxGeometry x="450" y="540" width="240" height="105" as="geometry"/>
                 </mxCell>
-                <mxCell id="r-KkZK2zQZgvtkGGY7jv-6" value="Within each object, add the sentiment score for the query sent in by the user" style="text;html=1;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;align=center;" parent="r-KkZK2zQZgvtkGGY7jv-5" vertex="1">
+                <mxCell id="r-KkZK2zQZgvtkGGY7jv-6" value="Sort twitter responses by source and display the sentiment judgement for each tweet retrieved using the query submitted by the human" style="text;html=1;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;align=center;" parent="r-KkZK2zQZgvtkGGY7jv-5" vertex="1">
                     <mxGeometry y="26" width="240" height="74" as="geometry"/>
                 </mxCell>
                 <mxCell id="r-KkZK2zQZgvtkGGY7jv-24" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=none;startFill=0;endArrow=classic;endFill=1;" parent="1" source="r-KkZK2zQZgvtkGGY7jv-21" target="r-KkZK2zQZgvtkGGY7jv-1" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="CfUMpahbv_ZwyhBGr2wj-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" parent="1" source="r-KkZK2zQZgvtkGGY7jv-21" target="CfUMpahbv_ZwyhBGr2wj-5" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="r-KkZK2zQZgvtkGGY7jv-21" value="Create Corpus (&quot;documents&quot;)" style="swimlane;html=1;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#e0e0e0;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;swimlaneFillColor=#ffffff;align=center;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12" parent="1" vertex="1">
+                <mxCell id="r-KkZK2zQZgvtkGGY7jv-21" value="2. Store Tweets in memory" style="swimlane;html=1;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#60a917;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;swimlaneFillColor=#ffffff;align=center;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;fontColor=#ffffff;strokeColor=#2D7600;" parent="1" vertex="1">
                     <mxGeometry x="380" y="170" width="240" height="100" as="geometry"/>
                 </mxCell>
-                <mxCell id="r-KkZK2zQZgvtkGGY7jv-22" value="Write a line to a file that we can treat like DBLP.txt or test.txt from MP3" style="text;html=1;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;align=center;" parent="r-KkZK2zQZgvtkGGY7jv-21" vertex="1">
+                <mxCell id="r-KkZK2zQZgvtkGGY7jv-22" value="Store data within python objects" style="text;html=1;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;align=center;" parent="r-KkZK2zQZgvtkGGY7jv-21" vertex="1">
                     <mxGeometry y="26" width="240" height="74" as="geometry"/>
                 </mxCell>
                 <mxCell id="CfUMpahbv_ZwyhBGr2wj-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.489;entryY=0.986;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.45;exitY=-0.015;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="CfUMpahbv_ZwyhBGr2wj-5" target="CfUMpahbv_ZwyhBGr2wj-11" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="CfUMpahbv_ZwyhBGr2wj-5" value="Create &quot;Trending&quot; Topics" style="swimlane;html=1;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#e0e0e0;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;swimlaneFillColor=#ffffff;align=center;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12" parent="1" vertex="1">
+                <mxCell id="CfUMpahbv_ZwyhBGr2wj-5" value="6. Create &quot;Trending&quot; Topics" style="swimlane;html=1;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#ffe6cc;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;swimlaneFillColor=#ffffff;align=center;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;strokeColor=#d79b00;" parent="1" vertex="1">
                     <mxGeometry x="40" y="270" width="240" height="100" as="geometry"/>
                 </mxCell>
                 <mxCell id="CfUMpahbv_ZwyhBGr2wj-6" value="Use PSLA to define trending topics based on the response to general queries (sports, politics, entertainment, etc)" style="text;html=1;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;align=center;" parent="CfUMpahbv_ZwyhBGr2wj-5" vertex="1">
                     <mxGeometry y="26" width="240" height="74" as="geometry"/>
                 </mxCell>
-                <mxCell id="CfUMpahbv_ZwyhBGr2wj-11" value="Trending Topics" style="html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=2;fontFamily=Verdana;fontSize=12;align=center;shape=mxgraph.ios7ui.horLines;" parent="1" vertex="1">
+                <mxCell id="CfUMpahbv_ZwyhBGr2wj-11" value="Output/Input:&lt;br&gt;Trending Topics" style="html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=2;fontFamily=Verdana;fontSize=12;align=center;shape=mxgraph.ios7ui.horLines;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
                     <mxGeometry x="55" y="119" width="190" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="4" target="21ea969265ad0168-30">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="5. Build Persistent Corpus" style="swimlane;html=1;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#ffe6cc;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;swimlaneFillColor=#ffffff;align=center;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;strokeColor=#d79b00;" vertex="1" parent="1">
+                    <mxGeometry x="25" y="607" width="240" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="&lt;span style=&quot;font-family: &amp;#34;verdana&amp;#34;&quot;&gt;Persist data in text&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;font-family: &amp;#34;verdana&amp;#34;&quot;&gt;document or database. Append each tweet onto Corpus&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;align=center;" vertex="1" parent="4">
+                    <mxGeometry y="26" width="240" height="74" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
