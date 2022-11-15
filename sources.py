@@ -14,6 +14,8 @@ news_source_ids = [nytimes_user_id,
     abc_news_user_id, 
     cbs_news_user_id, 
     vice_news_user_id]
+
+    
 news_sources = [{
     "name": "New York Times",
     "id": nytimes_user_id,

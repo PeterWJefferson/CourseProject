@@ -88,6 +88,7 @@ class TwitterClient(object):
                         parsed_tweet = {}
                         parsed_tweet['text'] = tweet.text
                         parsed_tweet['sentiment'] = self.get_tweet_sentiment(tweet.text)
+                        parsed_tweet['source'] = user["name"]
                         if tweet.retweet_count > 0:
                             if parsed_tweet not in tweets:
                                 tweets.append(parsed_tweet)
