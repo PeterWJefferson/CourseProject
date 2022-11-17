@@ -335,11 +335,13 @@ textarea {
  * 1. Add the correct box sizing in IE 10-.
  * 2. Remove the padding in IE 10-.
  */
-[type="checkbox"],
+[type="checkbox"] {
+    padding-left: 100px;
+}
 [type="radio"] {
   box-sizing: border-box;
   /* 1 */
-  padding: 0;
+  padding-left: 100px;
   /* 2 */
 }
 
@@ -947,6 +949,11 @@ button {
   font-size: 15px;
   color: #ccc;
   padding-left: 26px;
+}
+
+.s130 form .info2 {
+  font-size: 15px;
+  color: #ccc;
 }
 
 @media screen and (max-width: 992px) {

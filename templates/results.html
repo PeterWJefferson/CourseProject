@@ -15,10 +15,20 @@
   <p>RESULTS PAGE</p>
   <form action="query" method="post">
     <table>
-    <thead><tr><th>Tweet</th><th>Sentiment</th></tr></thead>
+    <thead>
+    <tr>
+      <th>Account</th>
+      <th>Tweet</th>
+      <th>Sentiment</th>
+    </tr>
+    </thead>
     <tbody>
     {% for tweet in tweet_list %}
-      <tr><td>{{ tweet['text'] }} </td><td>{{ tweet['sentiment'] }}</td></tr>
+      <tr>
+        <td>{{ tweet['source'] }}</td>
+        <td>{{ tweet['text'] }}</td>
+        <td>{{ tweet['sentiment'] }}</td>
+      </tr>
     {% endfor %}
     </tbody>
     </table>

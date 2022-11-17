@@ -46,6 +46,9 @@ class TwitterClient(object):
             return 'negative'
 
     def get_tweets(self, query, count=10):
+
+        # TODO: Can we get these tweets to also return their 'source' (aka Twitter account) so I can display it on
+        #  the results page?
         """
       Main function to fetch tweets and parse them.
       """
@@ -55,10 +58,12 @@ class TwitterClient(object):
             # With this, I get the error: AttributeError: 'API' object has no attribute 'search'. This could be a
             # versioning issue fetched_tweets = self.api.search(q = query, count = count)
             fetched_tweets = self.api.search_tweets(q=query, count=count)
+
             for tweet in fetched_tweets:
                 parsed_tweet = {}
                 parsed_tweet['text'] = tweet.text
                 parsed_tweet['sentiment'] = self.get_tweet_sentiment(tweet.text)
+                # parsed_tweet['source'] = tweet.screen_name
                 if tweet.retweet_count > 0:
                     if parsed_tweet not in tweets:
                         tweets.append(parsed_tweet)
@@ -70,35 +75,36 @@ class TwitterClient(object):
         except tweepy.errors.TweepyException as e:
             print("Error : " + str(e))
 
-
     def query_twitter_users(self, query, count, user_list=[]):
-            """
+        """
         Main function to fetch tweets and parse them.
         """
-            tweets = []
+        tweets = []
 
-            try:
-                # With this, I get the error: AttributeError: 'API' object has no attribute 'search'. This could be a
-                # versioning issue fetched_tweets = self.api.search(q = query, count = count)
-                fetched_tweets = []
-                for user in user_list:
-                    fetched_tweets += self.api.search_tweets(q="from:{} {}".format(user["username"], query))
-                    # print("Fetched tweets: {}".format(fetched_tweets))
-                    for tweet in fetched_tweets:
-                        parsed_tweet = {}
-                        parsed_tweet['text'] = tweet.text
-                        parsed_tweet['sentiment'] = self.get_tweet_sentiment(tweet.text)
-                        parsed_tweet['source'] = user["name"]
-                        if tweet.retweet_count > 0:
-                            if parsed_tweet not in tweets:
-                                tweets.append(parsed_tweet)
-                        else:
+        try:
+            # With this, I get the error: AttributeError: 'API' object has no attribute 'search'. This could be a
+            # versioning issue fetched_tweets = self.api.search(q = query, count = count)
+            fetched_tweets = []
+            for user in user_list:
+
+                fetched_tweets += self.api.search_tweets(q="from:{} {}".format(user, query))
+                # print("Fetched tweets: {}".format(fetched_tweets))
+                for tweet in fetched_tweets:
+                    parsed_tweet = {}
+                    parsed_tweet['text'] = tweet.text
+                    parsed_tweet['sentiment'] = self.get_tweet_sentiment(tweet.text)
+                    parsed_tweet['source'] = user
+                    if tweet.retweet_count > 0:
+                        if parsed_tweet not in tweets:
                             tweets.append(parsed_tweet)
-                return tweets
-            # The commented code gave me the error: AttributeError: module 'tweepy' has no attribute 'TweepError'. This
-            # could be a versioning issue except tweepy.TweepError as e:
-            except tweepy.errors.TweepyException as e:
-                print("Error : " + str(e))
+                    else:
+                        tweets.append(parsed_tweet)
+            return tweets
+        # The commented code gave me the error: AttributeError: module 'tweepy' has no attribute 'TweepError'. This
+        # could be a versioning issue except tweepy.TweepError as e:
+        except tweepy.errors.TweepyException as e:
+            print("Error : " + str(e))
+
 
 def search():
     query = input("What would you like to search on Twitter?\n")

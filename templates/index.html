@@ -13,6 +13,7 @@
   <body>
     <div class="s130">
       <form action="query" method="post">
+        <span class="info">ex. Biden, Trump, Ukraine, Healthcare</span>
         <div class="inner-form">
           <div class="input-field first-wrap">
             <div class="svg-wrapper">
@@ -27,7 +28,44 @@
             <input class="btn-search" type="submit" value="Search" id="search">
           </div>
         </div>
-        <span class="info">ex. Biden, Trump, Ukraine, Healthcare</span>
+        <div class="checkbox">
+          <fieldset>
+            <legend class="info2">Select to results from only specific Twitter Accounts (optional):</legend>
+            <br>
+            <div>
+            <input type="checkbox" id="NY Times" name="ny_times" value="ny_times">
+            <label for="NY Times">   NY Times</label>
+
+            <input type="checkbox" id="Fox News" name="fox_news" value="fox_news">
+            <label for="Fox News">   Fox News</label>
+            </div>
+            <br>
+            <div>
+            <input type="checkbox" id="Guardian" name="Guardian" value="Guardian">
+            <label for="Guardian">   Guardian</label>
+
+            <input type="checkbox" id="MSNBC" name="MSNBC" value="MSNBC">
+            <label for="MSNBC">   MSNBC</label>
+            </div>
+            <br>
+            <div>
+            <input type="checkbox" id="Politico" name="Politico" value="Politico">
+            <label for="Politico">   Politico</label>
+
+            <input type="checkbox" id="ABC News" name="ABC_News" value="ABC_News">
+            <label for="ABC News">   ABC News</label><br>
+            </div>
+            <br>
+            <div>
+            <input type="checkbox" id="CBS News" name="CBS_News" value="CBS_News">
+            <label for="CBS News">   CBS News</label>
+
+            <input type="checkbox" id="Vice News" name="Vice_News" value="Vice_News">
+            <label for="Vice News">   Vice News</label>
+            </div>
+          </fieldset>
+        </div>
+
       </form>
     </div>
     <!--

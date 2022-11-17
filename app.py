@@ -16,9 +16,30 @@ def index():
 def query():
     user_query = request.form['query_input']
     print(f"USER QUERY: {user_query}")
-    tweets_to_display = news_tweets(user_query)
-    print(tweets_to_display)
+
+    # Hold the selected news sources to explicitly search if user selected any.
+    list_of_news_accounts_to_search = []
+
+    # Names of check box HTML boxes
+    news_source_names = ["ny_times", "fox_news", "Guardian", "MSNBC", "Politico", "ABC_News", "CBS_News", "Vice_News"]
+
+    # Go through each HTML checkbox and append the ones that have been selected, if any, to the
+    #  list_of_news_accounts_to_search list.
+    for news_source_name in news_source_names:
+        if request.form.get(news_source_name) is not None:
+            list_of_news_accounts_to_search.append(news_source_name)
+
+    if list_of_news_accounts_to_search:
+        print(f"Only searching the following News source Twitter account(s): {list_of_news_accounts_to_search}")
+        tweets_to_display = news_tweets(user_query=user_query, news_sources=list_of_news_accounts_to_search)
+    else:
+        print(f"No explicit news source(s) selected, so searching all of twitter...")
+        tweets_to_display = tweets(user_query=user_query)
+
+    #print(tweets_to_display)
+
     return render_template("results.html", tweet_list=tweets_to_display)
+
 
 @app.route('/tweets', methods=['GET', 'POST'])
 def tweets(user_query):
@@ -28,19 +49,21 @@ def tweets(user_query):
         tweets = api.get_tweets(query=user_query, count=50)
         return tweets
 
+
 @app.route('/tweets/news', methods=['GET', 'POST'])
-def news_tweets(user_query=None):
+def news_tweets(user_query=None, news_sources=[]):
     if user_query:
         query = user_query
     else:
         query = request.form['query_input']
+
     api = TwitterAccess.TwitterClient()
     if request.method == 'POST':
         '''Getting the query results from Twitter and returning it to the api caller'''
         tweets = api.query_twitter_users(query=query, count=50, user_list=news_sources)
         return tweets
 
-        
+
 @app.route('/user/<username>')
 def show_user_profile(username=None):
     # username=None ensures the code run even when no name is provided
@@ -58,7 +81,6 @@ def clean_tweets(tweet_list):
     :param tweet_list: list of dictionary tweets
     :return: list of clean tweets
     """
-
 
 
 def login_user():
