@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, redirect, url_for
 import json
 import TwitterAccess
 from sources import *
@@ -36,9 +36,14 @@ def query():
         print(f"No explicit news source(s) selected, so searching all of twitter...")
         tweets_to_display = tweets(user_query=user_query)
 
-    #print(tweets_to_display)
+    return render_template("results.html", tweet_list=tweets_to_display, query=user_query)
 
-    return render_template("results.html", tweet_list=tweets_to_display)
+
+@app.route('/upvote')
+def upvote_post():
+    # TODO: Enter logic to take the tweet and put it in user DB
+    print("here")
+    return "nothing"
 
 
 @app.route('/tweets', methods=['GET', 'POST'])

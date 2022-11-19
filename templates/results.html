@@ -1,5 +1,19 @@
 <!DOCTYPE html>
 <html>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type=text/javascript>
+        $(function() {
+          $('a#upvote').on('click', function(e) {
+            e.preventDefault()
+            $.getJSON('/upvote',
+                function(data) {
+              //do nothing
+            });
+            return false;
+          });
+        });
+</script>
+
   <head>
     <title>Results</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -12,8 +26,8 @@
   </head>
 
   <body>
-  <h1 class="h1">RESULTS PAGE</h1>
-  <form action="query" method="post">
+  <h1 class="h1">Results for "{{ query }}"</h1>
+  <form action="upvote" method="post">
     {% extends "base.html" %}
     {% block content %}
     <table id="data" class="table table-striped">
@@ -22,6 +36,7 @@
       <th>Account</th>
       <th>Tweet</th>
       <th>Sentiment</th>
+      <th>Upvote</th>
     </tr>
     </thead>
     <tbody>
@@ -30,6 +45,8 @@
         <td>{{ tweet['source'] }}</td>
         <td>{{ tweet['text'] }}</td>
         <td>{{ tweet['sentiment'] }}</td>
+        <td> <a href=# id=upvote><button>Up Vote</button></a> </td>
+
       </tr>
     {% endfor %}
     </tbody>
@@ -43,6 +60,7 @@
     $(document).ready(function () {
       $('#data').DataTable({
         columns: [
+          null,
           null,
           null,
           null
