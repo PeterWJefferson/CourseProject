@@ -12,9 +12,11 @@
   </head>
 
   <body>
-  <p>RESULTS PAGE</p>
+  <h1 class="h1">RESULTS PAGE</h1>
   <form action="query" method="post">
-    <table>
+    {% extends "base.html" %}
+    {% block content %}
+    <table id="data" class="table table-striped">
     <thead>
     <tr>
       <th>Account</th>
@@ -32,8 +34,23 @@
     {% endfor %}
     </tbody>
     </table>
+    {% endblock %}
   </form>
   </body>
+
+{% block scripts %}
+  <script>
+    $(document).ready(function () {
+      $('#data').DataTable({
+        columns: [
+          null,
+          null,
+          null
+          ],
+      });
+    });
+  </script>
+{% endblock %}
 
 </html>
 
