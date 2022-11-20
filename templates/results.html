@@ -36,16 +36,16 @@
       <th>Account</th>
       <th>Tweet</th>
       <th>Sentiment</th>
-      <th>Upvote</th>
+<!--      <th>Upvote</th>-->
     </tr>
     </thead>
     <tbody>
     {% for tweet in tweet_list %}
       <tr>
-        <td>{{ tweet['source'] }}</td>
+        <td>@{{ tweet['source'] }}</td>
         <td>{{ tweet['text'] }}</td>
         <td>{{ tweet['sentiment'] }}</td>
-        <td> <a href=# id=upvote><button>Up Vote</button></a> </td>
+<!--        <td> <a href=# id=upvote><button>Up Vote</button></a> </td>-->
 
       </tr>
     {% endfor %}
@@ -60,7 +60,6 @@
     $(document).ready(function () {
       $('#data').DataTable({
         columns: [
-          null,
           null,
           null,
           null

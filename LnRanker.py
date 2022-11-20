@@ -32,7 +32,7 @@ class InL2Ranker(metapy.index.RankingFunction):
 
 def load_ranker(cfg_file):
     """
-    Use this function to return the Ranker object to evaluate, e.g. return InL2Ranker(some_param=1.0) 
+    Use this function to return the Ranker object to evaluate, e.g. return InL2Ranker(some_param=1.0)
     The parameter to this function, cfg_file, is the path to a
     configuration file used to load the index. You can ignore this for MP2.
     """
@@ -54,7 +54,7 @@ if __name__ == '__main__':
     # print("avg document length: {}".format(idx.avg_doc_length()))
     # # The total number of terms
     # print("total corpus terms: {}".format(idx.total_corpus_terms()))
-    
+
     inl2_results = []
     dirichletprior_results = []
     dirichlet_ranker = metapy.index.DirichletPrior(10)

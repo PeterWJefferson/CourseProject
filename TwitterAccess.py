@@ -58,10 +58,6 @@ class TwitterClient(object):
 
             for tweet in fetched_tweets:
                 parsed_tweet = {}
-
-                if 'urls' in tweet.entites.keys():
-                    print(tweet.entities)
-
                 parsed_tweet['text'] = tweet.text
                 parsed_tweet['sentiment'] = self.get_tweet_sentiment(tweet.text)
                 parsed_tweet['source'] = tweet.user.screen_name

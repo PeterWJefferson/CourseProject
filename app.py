@@ -46,7 +46,6 @@ def query():
 @app.route('/upvote')
 def upvote_post():
     # TODO: Enter logic to take the tweet and put it in user DB
-    print("here")
     return "nothing"
 
 
@@ -71,7 +70,6 @@ def news_tweets(user_query=None, news_sources=[]):
     if request.method == 'POST':
         '''Getting the query results from Twitter and returning it to the api caller'''
         tweets = api.query_twitter_users(query=query, count=50, user_list=news_sources)
-    ranker = LnRanker.InL2Ranker()
     
     return tweets
 
