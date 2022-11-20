@@ -1,14 +1,19 @@
 from flask import Flask, request, render_template, redirect, url_for
 import json
 import TwitterAccess
+import LnRanker
+import Plsa
 from sources import *
 
 # template_folder is relative to where the main flask run .py file is (/api/app.py)
 app = Flask(__name__)  # , template_folder='../templates', static_url_path="/")
 
 
+
+
 @app.route('/')
 def index():
+    
     return render_template("index.html")
 
 
@@ -20,8 +25,7 @@ def query():
     # Hold the selected news sources to explicitly search if user selected any.
     list_of_news_accounts_to_search = []
 
-    # Names of check box HTML boxes
-    news_source_names = ["nytimes", "FoxNews", "Guardian", "MSNBC", "Politico", "abcnews", "CBSNews", "VICENews"]
+   
 
     # Go through each HTML checkbox and append the ones that have been selected, if any, to the
     #  list_of_news_accounts_to_search list.
@@ -63,10 +67,21 @@ def news_tweets(user_query=None, news_sources=[]):
         query = request.form['query_input']
 
     api = TwitterAccess.TwitterClient()
+    tweets = []
     if request.method == 'POST':
         '''Getting the query results from Twitter and returning it to the api caller'''
         tweets = api.query_twitter_users(query=query, count=50, user_list=news_sources)
-        return tweets
+    ranker = LnRanker.InL2Ranker()
+    
+    return tweets
+
+@app.route('/tweets/init', methods=['GET', 'POST'])
+def tweets_init():
+    api = TwitterAccess.TwitterClient()
+    tweets = []
+    '''Getting the recent tweets from out news sources'''
+    tweets = api.query_twitter_users(query=None, count=50, user_list=news_sources)
+    return tweets
 
 
 @app.route('/user/<username>')

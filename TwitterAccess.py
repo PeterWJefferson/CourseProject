@@ -87,20 +87,37 @@ class TwitterClient(object):
             # With this, I get the error: AttributeError: 'API' object has no attribute 'search'. This could be a
             # versioning issue fetched_tweets = self.api.search(q = query, count = count)
             fetched_tweets = []
-            for user in user_list:
+            if query == None:
+                for user in user_list:
 
-                fetched_tweets += self.api.search_tweets(q="from:{} {}".format(user, query))
-                # print("Fetched tweets: {}".format(fetched_tweets))
-                for tweet in fetched_tweets:
-                    parsed_tweet = {}
-                    parsed_tweet['text'] = tweet.text
-                    parsed_tweet['sentiment'] = self.get_tweet_sentiment(tweet.text)
-                    parsed_tweet['source'] = user
-                    if tweet.retweet_count > 0:
-                        if parsed_tweet not in tweets:
+                    fetched_tweets += self.api.search_tweets(q="from:{}".format(user))
+                    # print("Fetched tweets: {}".format(fetched_tweets))
+                    for tweet in fetched_tweets:
+                        parsed_tweet = {}
+                        parsed_tweet['text'] = tweet.text
+                        parsed_tweet['sentiment'] = self.get_tweet_sentiment(tweet.text)
+                        parsed_tweet['source'] = user
+                        if tweet.retweet_count > 0:
+                            if parsed_tweet not in tweets:
+                                tweets.append(parsed_tweet)
+                        else:
                             tweets.append(parsed_tweet)
-                    else:
-                        tweets.append(parsed_tweet)
+                return
+            else:
+                for user in user_list:
+
+                    fetched_tweets += self.api.search_tweets(q="from:{} {}".format(user, query))
+                    # print("Fetched tweets: {}".format(fetched_tweets))
+                    for tweet in fetched_tweets:
+                        parsed_tweet = {}
+                        parsed_tweet['text'] = tweet.text
+                        parsed_tweet['sentiment'] = self.get_tweet_sentiment(tweet.text)
+                        parsed_tweet['source'] = user
+                        if tweet.retweet_count > 0:
+                            if parsed_tweet not in tweets:
+                                tweets.append(parsed_tweet)
+                        else:
+                            tweets.append(parsed_tweet)
             return tweets
         # The commented code gave me the error: AttributeError: module 'tweepy' has no attribute 'TweepError'. This
         # could be a versioning issue except tweepy.TweepError as e:

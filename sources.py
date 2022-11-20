@@ -49,3 +49,6 @@ news_sources = [{
     "id": vice_news_user_id,
     "username": "vicenews"
 }]
+
+ # Names of check box HTML boxes
+news_source_names = ["nytimes", "FoxNews", "Guardian", "MSNBC", "Politico", "abcnews", "CBSNews", "VICENews"]
