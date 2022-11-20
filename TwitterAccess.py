@@ -46,9 +46,6 @@ class TwitterClient(object):
             return 'negative'
 
     def get_tweets(self, query, count=10):
-
-        # TODO: Can we get these tweets to also return their 'source' (aka Twitter account) so I can display it on
-        #  the results page?
         """
       Main function to fetch tweets and parse them.
       """
@@ -61,9 +58,14 @@ class TwitterClient(object):
 
             for tweet in fetched_tweets:
                 parsed_tweet = {}
+
+                if 'urls' in tweet.entites.keys():
+                    print(tweet.entities)
+
                 parsed_tweet['text'] = tweet.text
                 parsed_tweet['sentiment'] = self.get_tweet_sentiment(tweet.text)
-                # parsed_tweet['source'] = tweet.screen_name
+                parsed_tweet['source'] = tweet.user.screen_name
+
                 if tweet.retweet_count > 0:
                     if parsed_tweet not in tweets:
                         tweets.append(parsed_tweet)

@@ -21,7 +21,7 @@ def query():
     list_of_news_accounts_to_search = []
 
     # Names of check box HTML boxes
-    news_source_names = ["ny_times", "fox_news", "Guardian", "MSNBC", "Politico", "ABC_News", "CBS_News", "Vice_News"]
+    news_source_names = ["nytimes", "FoxNews", "Guardian", "MSNBC", "Politico", "abcnews", "CBSNews", "VICENews"]
 
     # Go through each HTML checkbox and append the ones that have been selected, if any, to the
     #  list_of_news_accounts_to_search list.
