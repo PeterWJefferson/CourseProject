@@ -43,7 +43,8 @@
     {% for tweet in tweet_list %}
       <tr>
         <td>@{{ tweet['source'] }}</td>
-        <td>{{ tweet['text'] }}</td>
+        <td>
+          <a href="https://twitter.com/twitter/statuses/{{ tweet['id'] }}" target="_blank">{{ tweet['text'] }}</a></td>
         <td>{{ tweet['sentiment'] }}</td>
 <!--        <td> <a href=# id=upvote><button>Up Vote</button></a> </td>-->
 

@@ -110,6 +110,7 @@ class TwitterClient(object):
                     # print("Fetched tweets: {}".format(fetched_tweets))
                     for tweet in fetched_tweets:
                         parsed_tweet = {}
+                        parsed_tweet['id'] = tweet.id
                         parsed_tweet['text'] = tweet.text
                         parsed_tweet['sentiment'] = self.get_tweet_sentiment(tweet.text)
                         parsed_tweet['source'] = user
