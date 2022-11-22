@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e" pages="2">
     <diagram name="Page-1" id="52a04d89-c75d-2922-d76d-85b35f80e030">
-        <mxGraphModel dx="1773" dy="615" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="1">
+        <mxGraphModel dx="1773" dy="413" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="1">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -73,7 +73,7 @@
                 <mxCell id="CfUMpahbv_ZwyhBGr2wj-5" value="6. Create &quot;Trending&quot; Topics" style="swimlane;html=1;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#ffe6cc;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;swimlaneFillColor=#ffffff;align=center;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;strokeColor=#d79b00;" parent="1" vertex="1">
                     <mxGeometry x="40" y="270" width="240" height="100" as="geometry"/>
                 </mxCell>
-                <mxCell id="CfUMpahbv_ZwyhBGr2wj-6" value="Use LSA/LDA to define trending topics based on the user query as well as the 50 recent tweets (maybe 20 most recent tweets would be better for performance)" style="text;html=1;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;align=center;" parent="CfUMpahbv_ZwyhBGr2wj-5" vertex="1">
+                <mxCell id="CfUMpahbv_ZwyhBGr2wj-6" value="Use LSA/LDA to define trending topics based on the user query as well as the 20 most recent tweets from news sources (lowered from 50 for performance)" style="text;html=1;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;align=center;" parent="CfUMpahbv_ZwyhBGr2wj-5" vertex="1">
                     <mxGeometry y="26" width="240" height="74" as="geometry"/>
                 </mxCell>
                 <mxCell id="CfUMpahbv_ZwyhBGr2wj-11" value="Output/Input:&lt;br&gt;Trending Topics" style="html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=2;fontFamily=Verdana;fontSize=12;align=center;shape=mxgraph.ios7ui.horLines;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
@@ -94,7 +94,7 @@
                 <mxCell id="9" value="N. Get Trending Topics in the News" style="swimlane;html=1;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#ffe6cc;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;swimlaneFillColor=#ffffff;align=center;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;strokeColor=#d79b00;" parent="1" vertex="1">
                     <mxGeometry x="-310" y="451" width="240" height="100" as="geometry"/>
                 </mxCell>
-                <mxCell id="10" value="Get the 50 most recent tweets for all of the 6 news sources and run the topic modeling algorithm against it" style="text;html=1;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;align=center;" parent="9" vertex="1">
+                <mxCell id="10" value="Get the 20 most recent tweets for all of the 6 news sources and run the topic modeling algorithm against it" style="text;html=1;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;align=center;" parent="9" vertex="1">
                     <mxGeometry y="26" width="240" height="74" as="geometry"/>
                 </mxCell>
                 <mxCell id="20" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=0;" edge="1" parent="1" source="18" target="CfUMpahbv_ZwyhBGr2wj-6">
