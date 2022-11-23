@@ -34,21 +34,20 @@ def query():
         tweets_to_display = news_tweets(user_query=user_query, news_sources=list_of_news_accounts_to_search)
         # Calculate the sentiments total by news source to display them.
         for news_account in list_of_news_accounts_to_search:
-            news_source_sentiments[news_account] = {'positive': 0,
-                                                    'neutral': 0,
-                                                    'negative': 0} #,
-                                                    # 'total': 0}
+            news_source_sentiments[news_account] = [{'positive': 0,
+                                                     'neutral': 0,
+                                                     'negative': 0}, 0]
         for tweet in tweets_to_display:
             news_account = tweet['source']
             tweet_sentiment = tweet['sentiment']
-            news_source_sentiments[news_account][tweet_sentiment] += 1
-            # news_source_sentiments[news_account]['total'] += 1
+            news_source_sentiments[news_account][0][tweet_sentiment] += 1
+            news_source_sentiments[news_account][1] += 1
 
         # Calculate the percentage of sentiments for each news account
         for account in news_source_sentiments.keys():
-            positive = news_source_sentiments[account]['positive']
-            neutral = news_source_sentiments[account]['neutral']
-            negative = news_source_sentiments[account]['negative']
+            positive = news_source_sentiments[account][0]['positive']
+            neutral = news_source_sentiments[account][0]['neutral']
+            negative = news_source_sentiments[account][0]['negative']
 
             total = positive + neutral + negative
 
@@ -56,9 +55,9 @@ def query():
             neutral_percent = neutral / total
             negative_percent = negative / total
 
-            news_source_sentiments[account]['positive'] = round(positive_percent * 100, 2)
-            news_source_sentiments[account]['neutral'] = round(neutral_percent * 100, 2)
-            news_source_sentiments[account]['negative'] = round(negative_percent * 100, 2)
+            news_source_sentiments[account][0]['positive'] = round(positive_percent * 100, 2)
+            news_source_sentiments[account][0]['neutral'] = round(neutral_percent * 100, 2)
+            news_source_sentiments[account][0]['negative'] = round(negative_percent * 100, 2)
 
         print(news_source_sentiments)
 
