@@ -44,7 +44,7 @@
     <tbody>
     {% for tweet in tweet_list %}
       <tr>
-        <td>@{{ tweet['source'] }}</td>
+        <td><a href="https://twitter.com/{{ tweet['source'] }}" target="_blank">@{{ tweet['source'] }}</a></td>
         <td>
           <a href="https://twitter.com/twitter/statuses/{{ tweet['id'] }}" target="_blank">{{ tweet['text'] }}</a></td>
         <td>{{ tweet['sentiment'] }}</td>
@@ -61,7 +61,7 @@
       <thead>
       <tr>
         {% for k,v in news_sentiments.items() %}
-        <th>@{{ k }} Sentiment Analysis Percentages</th>
+        <th><a href="https://twitter.com/{{ k }}" target="_blank">@{{ k }}</a> Sentiment Analysis Percentages</th>
       </tr>
       </thead>
       <tbody>
@@ -75,6 +75,8 @@
       </tbody>
     </table>
       {% endblock %}
+  <br>
+  <br>
   </body>
 
 {% block scripts %}
