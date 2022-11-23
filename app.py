@@ -9,11 +9,8 @@ from sources import *
 app = Flask(__name__)  # , template_folder='../templates', static_url_path="/")
 
 
-
-
 @app.route('/')
 def index():
-    
     return render_template("index.html")
 
 
@@ -24,9 +21,8 @@ def query():
 
     # Hold the selected news sources to explicitly search if user selected any.
     list_of_news_accounts_to_search = []
-
-   
-
+    # Hold the number of sentiments (positive, neutral, negative) for each news source
+    news_source_sentiments = {}
     # Go through each HTML checkbox and append the ones that have been selected, if any, to the
     #  list_of_news_accounts_to_search list.
     for news_source_name in news_source_names:
@@ -36,11 +32,42 @@ def query():
     if list_of_news_accounts_to_search:
         print(f"Only searching the following News source Twitter account(s): {list_of_news_accounts_to_search}")
         tweets_to_display = news_tweets(user_query=user_query, news_sources=list_of_news_accounts_to_search)
+        # Calculate the sentiments total by news source to display them.
+        for news_account in list_of_news_accounts_to_search:
+            news_source_sentiments[news_account] = {'positive': 0,
+                                                    'neutral': 0,
+                                                    'negative': 0} #,
+                                                    # 'total': 0}
+        for tweet in tweets_to_display:
+            news_account = tweet['source']
+            tweet_sentiment = tweet['sentiment']
+            news_source_sentiments[news_account][tweet_sentiment] += 1
+            # news_source_sentiments[news_account]['total'] += 1
+
+        # Calculate the percentage of sentiments for each news account
+        for account in news_source_sentiments.keys():
+            positive = news_source_sentiments[account]['positive']
+            neutral = news_source_sentiments[account]['neutral']
+            negative = news_source_sentiments[account]['negative']
+
+            total = positive + neutral + negative
+
+            positive_percent = positive / total
+            neutral_percent = neutral / total
+            negative_percent = negative / total
+
+            news_source_sentiments[account]['positive'] = round(positive_percent * 100, 2)
+            news_source_sentiments[account]['neutral'] = round(neutral_percent * 100, 2)
+            news_source_sentiments[account]['negative'] = round(negative_percent * 100, 2)
+
+        print(news_source_sentiments)
+
     else:
         print(f"No explicit news source(s) selected, so searching all of twitter...")
         tweets_to_display = tweets(user_query=user_query)
 
-    return render_template("results.html", tweet_list=tweets_to_display, query=user_query)
+    return render_template("results.html", tweet_list=tweets_to_display, query=user_query,
+                           news_sentiments=news_source_sentiments)
 
 
 @app.route('/upvote')
@@ -73,9 +100,10 @@ def news_tweets(user_query=None, news_sources=[]):
     dblp = open('data/DBLP.txt', 'a')
     if tweets:
         for tweet in tweets:
-            dblp.write("{}\n".format(tweet['text'].replace("\n","")))
+            dblp.write("{}\n".format(tweet['text'].replace("\n", "")))
             print(tweet)
     return tweets
+
 
 @app.route('/tweets/init', methods=['GET', 'POST'])
 def tweets_init():
