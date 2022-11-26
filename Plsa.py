@@ -73,10 +73,14 @@ class Corpus(object):
 
         Update self.vocabulary_size
         """
+        stop_words = None
+        with open('lemur-stopwords.txt') as lemur_file:
+            stop_words = lemur_file.readlines()
         _set = set()
         for document in self.documents:
             _set.update(document)
-        self.vocabulary = _set
+        filtered = [x for x in set(_set) if x not in stop_words]
+        self.vocabulary = filtered
         self.vocabulary_size = len(self.vocabulary)
 
     def build_term_doc_matrix(self):

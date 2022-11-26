@@ -2,7 +2,7 @@ from flask import Flask, request, render_template, redirect, url_for
 import json
 import TwitterAccess
 import LnRanker
-import Plsa
+from Plsa import *
 from sources import *
 
 # template_folder is relative to where the main flask run .py file is (/api/app.py)
@@ -99,7 +99,8 @@ def news_tweets(user_query=None, news_sources=[]):
     dblp = open('data/DBLP.txt', 'a')
     if tweets:
         for tweet in tweets:
-            dblp.write("{}\n".format(tweet['text'].replace("\n", "")))
+            tweet_minus_link = tweet['text']
+            dblp.write("{}\n".format(tweet_minus_link.replace("\n", " ")))
             print(tweet)
     return tweets
 
@@ -111,6 +112,12 @@ def tweets_init():
     '''Getting the recent tweets from out news sources'''
     tweets = api.query_twitter_users(query=None, count=50, user_list=news_sources)
     return tweets
+
+@app.route('/tweets/trends', methods=['GET', 'POST'])
+def get_trends():
+    trends = []
+    '''Getting trends based on recent tweets and recent queries'''
+    return trends
 
 
 @app.route('/user/<username>')
