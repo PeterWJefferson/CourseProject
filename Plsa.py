@@ -227,7 +227,7 @@ def main():
     max_iterations = 500
     epsilon = 0.001
     corpus.plsa(number_of_topics, max_iterations, epsilon)
-
+    
 
 
 if __name__ == '__main__':
