@@ -1,6 +1,6 @@
 {
   "name": "MPDL-Project",
-  "version": "1.1.0",
+  "version": "0.0.0",
   "description": "Course project for group MPDL (Michaela, Peter, Da'Mon, and Lookman).",
   "scripts": {
     "prepare": "cd .. && (npx husky install .semantics/.husky || true) && ([ -f .semantics/.husky/commit-msg ] && echo \"commit-msg file exists\" || node .semantics/node_modules/husky/lib/bin.js add .semantics/.husky/commit-msg \"cd .semantics/ && npx --no -- commitlint --edit $1\") && cd .semantics/",
