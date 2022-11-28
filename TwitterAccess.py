@@ -60,8 +60,8 @@ class TwitterClient(object):
             for tweet in fetched_tweets:
                 parsed_tweet = {}
                 parsed_tweet['id'] = tweet.id
-                parsed_tweet['text'] = tweet.text
-                parsed_tweet['sentiment'] = self.get_tweet_sentiment(tweet.text)
+                parsed_tweet['text'] = tweet.text.split("https://")[0]
+                parsed_tweet['sentiment'] = self.get_tweet_sentiment(tweet.text.split("https://")[0])
                 parsed_tweet['source'] = tweet.user.screen_name
 
                 if tweet.retweet_count > 0:
@@ -93,8 +93,8 @@ class TwitterClient(object):
                     for tweet in fetched_tweets:
                         parsed_tweet = {}
                         parsed_tweet['id'] = tweet.id
-                        parsed_tweet['text'] = tweet.text
-                        parsed_tweet['sentiment'] = self.get_tweet_sentiment(tweet.text)
+                        parsed_tweet['text'] = tweet.text.split("https://")[0].split(" https://")[0]
+                        parsed_tweet['sentiment'] = self.get_tweet_sentiment(tweet.text.split("https://")[0])
                         parsed_tweet['source'] = user
 
                         if tweet.retweet_count > 0:
@@ -111,8 +111,8 @@ class TwitterClient(object):
                     for tweet in fetched_tweets:
                         parsed_tweet = {}
                         parsed_tweet['id'] = tweet.id
-                        parsed_tweet['text'] = tweet.text
-                        parsed_tweet['sentiment'] = self.get_tweet_sentiment(tweet.text)
+                        parsed_tweet['text'] = tweet.text.split("https://")[0]
+                        parsed_tweet['sentiment'] = self.get_tweet_sentiment(tweet.text.split("https://")[0])
                         parsed_tweet['source'] = user
                         if tweet.retweet_count > 0:
                             if parsed_tweet not in tweets:

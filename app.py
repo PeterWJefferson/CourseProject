@@ -1,8 +1,9 @@
 from flask import Flask, request, render_template, redirect, url_for
+from gensim.parsing.preprocessing import remove_stopwords, strip_punctuation, strip_short, strip_non_alphanum
 import json
 import TwitterAccess
 import LnRanker
-import Plsa
+from Plsa import *
 from sources import *
 
 # template_folder is relative to where the main flask run .py file is (/api/app.py)
@@ -105,7 +106,8 @@ def news_tweets(user_query=None, news_sources=[]):
     dblp = open('data/DBLP.txt', 'a')
     if tweets:
         for tweet in tweets:
-            dblp.write("{}\n".format(tweet['text'].replace("\n", "")))
+            clean_tweet = strip_short(strip_punctuation(remove_stopwords(strip_non_alphanum(tweet['text']))), minsize=5)
+            dblp.write("{}\n".format(clean_tweet.replace("\n", " ").lower()))
             print(tweet)
     return tweets
 
@@ -117,6 +119,13 @@ def tweets_init():
     '''Getting the recent tweets from out news sources'''
     tweets = api.query_twitter_users(query=None, count=50, user_list=news_sources)
     return tweets
+
+@app.route('/tweets/topics', methods=['GET', 'POST'])
+def get_toptics():
+    trends = []
+    '''Getting trends based on recent tweets and recent queries'''
+    trends = get_topics()
+    return {"trends": trends}
 
 
 @app.route('/user/<username>')
