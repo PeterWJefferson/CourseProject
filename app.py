@@ -11,7 +11,13 @@ app = Flask(__name__)  # , template_folder='../templates', static_url_path="/")
 
 @app.route('/')
 def index():
-    return render_template("index.html")
+    # TODO: Call PLSA with DBLP.txt file
+
+    # TODO: store returned topics in a list
+    recommended_topics = ["biden", "trump", "healthcare", "Ukraine war"]
+    # TODO: return the clean list to the index.html template. Maybe limit the number or topics returned to <10
+
+    return render_template("index.html", recommended_search_topics=recommended_topics)
 
 
 @app.route('/query', methods=['POST'])

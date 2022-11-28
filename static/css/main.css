@@ -28,11 +28,19 @@ section {
   display: block;
 }
 
+ul, li {
+    display: inline;
+    display: inline-block;
+/*    text-align: center;*/
+
+}
+
 /**
  * Correct the font size and margin on `h1` elements within `section` and
  * `article` contexts in Chrome, Firefox, and Safari.
  */
 h1 {
+  font-family: 'Poppins', sans-serif;
   font-size: 2em;
   margin: 0.67em 0;
   text-align: center;
@@ -202,6 +210,11 @@ audio:not([controls]) {
  */
 img {
   border-style: none;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: auto;
+  width: 50%;
 }
 
 /**
@@ -829,13 +842,13 @@ button {
   background-position: bottom right;
   background-repeat: no-repeat;
   background-size: 100%;
-  padding: 15px;
+/*  padding: 15px;*/
 }
 
 .s130 form {
   width: 100%;
   max-width: 790px;
-  padding-top: 24vh;
+  padding-top: 10vh;
 }
 
 .s130 form .inner-form {
