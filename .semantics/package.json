@@ -59,15 +59,12 @@
         "@semantic-release/git",
         {
           "assets": [
+            "../*",
             "CHANGELOG.md",
             "../README.md",
             "../.semantics/*.*",
             "../.semantics/.husky/**",
-            "../api/*",
-            "../api/src/**",
-            "../ui/*",
-            "../ui/src/**",
-            "../docs"
+            "../.docs/**"
           ],
           "message": "chore(release): ${nextRelease.version} [skip ci]"
         }
@@ -76,15 +73,12 @@
         "@semantic-release/github",
         {
           "assets": [
+            "../*",
             "CHANGELOG.md",
             "../README.md",
             "../.semantics/*.*",
             "../.semantics/.husky/**",
-            "../api/*",
-            "../api/src/**",
-            "../ui/*",
-            "../ui/src/**",
-            "../docs"
+            "../.docs/**"
           ],
           "message": "chore(release): ${nextRelease.version} [skip ci]"
         }
