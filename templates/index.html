@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <html>
+<script> function moveNumbers(num) {
+    var txt=document.getElementById("result").value;
+    txt=num;
+    document.getElementById("result").value=txt;
+    }
+</script>
+
   <head>
     <title>CS410 Final Project</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -9,11 +16,31 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
     <!-- Link the CSS style file to this HTML page -->
     <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='css/main.css') }}">
+
   </head>
+
   <body>
+    <h1 class="h1">
+        CS410 Final Project: News Source Sentiment Analysis
+    </h1>
+    <br>
+    <img src="../static/images/uiuc_logo.png" alt="uiuc_logo">
     <div class="s130">
       <form action="query" method="post">
-        <span class="info">ex. Biden, Trump, Ukraine, Healthcare</span>
+        <h3>
+          Recommended Search Topics:
+        </h3>
+        <span class="info">Click topic buttons to populate search bar.</span>
+        <br>
+        <ul class="ul, li">
+          {% for topic in recommended_search_topics %}
+          <li>
+            <input type="button" value="{{ topic }}" name="no" onclick="moveNumbers(this.value)">
+          </li>
+          {% endfor %}
+        </ul>
+        <br>
+<!--        <span class="info">ex. Biden, Trump, Ukraine, Healthcare</span>-->
         <div class="inner-form">
           <div class="input-field first-wrap">
             <div class="svg-wrapper">
@@ -21,7 +48,7 @@
                 <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
               </svg>
             </div>
-            <input required type="text" placeholder="Enter your query here!" name="query_input">
+            <input id="result" required type="text" placeholder="Enter your query here!" name="query_input">
           </div>
           <div class="input-field second-wrap">
             <!-- Search Button -->
@@ -30,7 +57,7 @@
         </div>
         <div class="checkbox">
           <fieldset>
-            <legend class="info2">Select to results from only specific Twitter Accounts (optional):</legend>
+            <legend class="info2">Select to see results from only specific Twitter Accounts (optional):</legend>
             <br>
             <div>
             <input type="checkbox" id="NY Times" name="nytimes" value="nytimes">
