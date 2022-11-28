@@ -1,28 +1,28 @@
 <mxfile host="65bd71144e" pages="2">
     <diagram name="Page-1" id="52a04d89-c75d-2922-d76d-85b35f80e030">
-        <mxGraphModel dx="2228" dy="698" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="0" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="1">
+        <mxGraphModel dx="2728" dy="698" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="0" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="1">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="CfUMpahbv_ZwyhBGr2wj-9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.516;exitY=-0.029;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.45;entryY=0.986;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="21ea969265ad0168-30" target="CfUMpahbv_ZwyhBGr2wj-6" edge="1">
+                <mxCell id="CfUMpahbv_ZwyhBGr2wj-9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.516;exitY=-0.029;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.45;entryY=0.986;entryDx=0;entryDy=0;entryPerimeter=0;strokeWidth=3;fillColor=#60a917;strokeColor=#2D7600;" parent="1" source="21ea969265ad0168-30" target="CfUMpahbv_ZwyhBGr2wj-6" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="146" y="430" as="sourcePoint"/>
                         <mxPoint x="149" y="380" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="21ea969265ad0168-30" value="&lt;b&gt;Output:&lt;br&gt;Persistent Corpus&lt;/b&gt;" style="html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=2;fontFamily=Verdana;fontSize=12;align=center;shape=mxgraph.ios7ui.horLines;fillColor=#60A917;strokeColor=#82B366;gradientColor=#FFE6CC;gradientDirection=north;" parent="1" vertex="1">
+                <mxCell id="21ea969265ad0168-30" value="&lt;b&gt;Output:&lt;br&gt;Persistent Corpus&lt;/b&gt;" style="html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=2;fontFamily=Verdana;fontSize=12;align=center;shape=mxgraph.ios7ui.horLines;fillColor=#60A917;strokeColor=#FFB366;gradientColor=#FFB366;gradientDirection=north;" parent="1" vertex="1">
                     <mxGeometry x="50" y="460" width="190" height="70" as="geometry"/>
                 </mxCell>
-                <mxCell id="1fdf3b25b50cf41e-27" style="html=1;labelBackgroundColor=none;startFill=0;startSize=8;endFill=1;endSize=8;fontFamily=Verdana;fontSize=12;" parent="1" source="17472293e6e8944d-30" target="1fdf3b25b50cf41e-1" edge="1">
+                <mxCell id="1fdf3b25b50cf41e-27" style="html=1;labelBackgroundColor=none;startFill=0;startSize=8;endFill=1;endSize=8;fontFamily=Verdana;fontSize=12;fillColor=#60a917;strokeColor=#2D7600;rounded=0;strokeWidth=3;" parent="1" source="17472293e6e8944d-30" target="1fdf3b25b50cf41e-1" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="3" value="" style="edgeStyle=none;html=1;startArrow=classic;startFill=1;endArrow=none;endFill=0;" parent="1" source="17472293e6e8944d-30" target="CfUMpahbv_ZwyhBGr2wj-11" edge="1">
+                <mxCell id="3" value="" style="edgeStyle=none;html=1;startArrow=classic;startFill=1;endArrow=none;endFill=0;fillColor=#f0a30a;strokeColor=#BD7000;strokeWidth=3;" parent="1" source="17472293e6e8944d-30" target="CfUMpahbv_ZwyhBGr2wj-11" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="17472293e6e8944d-30" value="User Query Data" style="whiteSpace=wrap;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;align=center;" parent="1" vertex="1">
                     <mxGeometry x="89" y="39" width="120" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="1fdf3b25b50cf41e-38" style="edgeStyle=elbowEdgeStyle;html=1;labelBackgroundColor=none;startFill=0;startSize=8;endFill=1;endSize=8;fontFamily=Verdana;fontSize=12;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="r-KkZK2zQZgvtkGGY7jv-22" target="5" edge="1">
+                <mxCell id="1fdf3b25b50cf41e-38" style="edgeStyle=elbowEdgeStyle;html=1;labelBackgroundColor=none;startFill=0;startSize=8;endFill=1;endSize=8;fontFamily=Verdana;fontSize=12;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;strokeWidth=3;fillColor=#60a917;strokeColor=#2D7600;" parent="1" source="r-KkZK2zQZgvtkGGY7jv-22" target="5" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="300" y="260"/>
@@ -32,7 +32,7 @@
                         <mxPoint x="180" y="310" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="r-KkZK2zQZgvtkGGY7jv-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=none;startFill=0;endArrow=classic;endFill=1;" parent="1" source="1fdf3b25b50cf41e-1" target="r-KkZK2zQZgvtkGGY7jv-21" edge="1">
+                <mxCell id="r-KkZK2zQZgvtkGGY7jv-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=none;startFill=0;endArrow=classic;endFill=1;strokeWidth=3;fillColor=#60a917;strokeColor=#2D7600;" parent="1" source="1fdf3b25b50cf41e-1" target="r-KkZK2zQZgvtkGGY7jv-21" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="1fdf3b25b50cf41e-1" value="1. Send Query to Twitter" style="swimlane;html=1;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#60a917;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;swimlaneFillColor=#ffffff;align=center;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;strokeColor=#2D7600;fontColor=#ffffff;" parent="1" vertex="1">
@@ -41,7 +41,7 @@
                 <mxCell id="r-KkZK2zQZgvtkGGY7jv-16" value="Use Twitter Client to retrieve tweets from Twitter API" style="text;html=1;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;align=center;" parent="1fdf3b25b50cf41e-1" vertex="1">
                     <mxGeometry y="26" width="240" height="74" as="geometry"/>
                 </mxCell>
-                <mxCell id="r-KkZK2zQZgvtkGGY7jv-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="r-KkZK2zQZgvtkGGY7jv-1" target="r-KkZK2zQZgvtkGGY7jv-5" edge="1">
+                <mxCell id="r-KkZK2zQZgvtkGGY7jv-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=3;fillColor=#60a917;strokeColor=#2D7600;" parent="1" source="r-KkZK2zQZgvtkGGY7jv-1" target="r-KkZK2zQZgvtkGGY7jv-5" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="570" y="545" as="targetPoint"/>
                     </mxGeometry>
@@ -58,7 +58,7 @@
                 <mxCell id="r-KkZK2zQZgvtkGGY7jv-6" value="Sort twitter responses by source and display the sentiment judgement for each tweet retrieved using the query submitted by the human" style="text;html=1;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;align=center;" parent="r-KkZK2zQZgvtkGGY7jv-5" vertex="1">
                     <mxGeometry y="26" width="240" height="74" as="geometry"/>
                 </mxCell>
-                <mxCell id="r-KkZK2zQZgvtkGGY7jv-24" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=none;startFill=0;endArrow=classic;endFill=1;" parent="1" source="r-KkZK2zQZgvtkGGY7jv-21" target="r-KkZK2zQZgvtkGGY7jv-1" edge="1">
+                <mxCell id="r-KkZK2zQZgvtkGGY7jv-24" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=none;startFill=0;endArrow=classic;endFill=1;strokeWidth=3;fillColor=#60a917;strokeColor=#2D7600;" parent="1" source="r-KkZK2zQZgvtkGGY7jv-21" target="r-KkZK2zQZgvtkGGY7jv-1" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="r-KkZK2zQZgvtkGGY7jv-21" value="2. Store Tweets in memory" style="swimlane;html=1;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#60a917;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;swimlaneFillColor=#ffffff;align=center;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;fontColor=#ffffff;strokeColor=#2D7600;" parent="1" vertex="1">
@@ -67,19 +67,19 @@
                 <mxCell id="r-KkZK2zQZgvtkGGY7jv-22" value="Store data within python objects" style="text;html=1;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;align=center;" parent="r-KkZK2zQZgvtkGGY7jv-21" vertex="1">
                     <mxGeometry y="26" width="240" height="74" as="geometry"/>
                 </mxCell>
-                <mxCell id="CfUMpahbv_ZwyhBGr2wj-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.489;entryY=0.986;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.45;exitY=-0.015;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="CfUMpahbv_ZwyhBGr2wj-5" target="CfUMpahbv_ZwyhBGr2wj-11" edge="1">
+                <mxCell id="CfUMpahbv_ZwyhBGr2wj-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.489;entryY=0.986;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.45;exitY=-0.015;exitDx=0;exitDy=0;exitPerimeter=0;fillColor=#f0a30a;strokeColor=#BD7000;strokeWidth=3;" parent="1" source="CfUMpahbv_ZwyhBGr2wj-5" target="CfUMpahbv_ZwyhBGr2wj-11" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="CfUMpahbv_ZwyhBGr2wj-5" value="6. Create &quot;Trending&quot; Topics" style="swimlane;html=1;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#ffe6cc;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;swimlaneFillColor=#ffffff;align=center;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;strokeColor=#d79b00;gradientColor=#60A917;" parent="1" vertex="1">
+                <mxCell id="CfUMpahbv_ZwyhBGr2wj-5" value="6. Present &quot;Trending&quot; Topics" style="swimlane;html=1;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#FFB366;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;swimlaneFillColor=#ffffff;align=center;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;strokeColor=#82B366;gradientColor=#60A917;" parent="1" vertex="1">
                     <mxGeometry x="40" y="270" width="240" height="100" as="geometry"/>
                 </mxCell>
-                <mxCell id="CfUMpahbv_ZwyhBGr2wj-6" value="Use PLSA to define trending topics based on the user query as well as the 20 most recent tweets from news sources (lowered from 50 for performance)" style="text;html=1;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;align=center;" parent="CfUMpahbv_ZwyhBGr2wj-5" vertex="1">
+                <mxCell id="CfUMpahbv_ZwyhBGr2wj-6" value="Present trending topics to the human as &quot;Recommended&quot; queries (based on user queries and topics discovered in query results)" style="text;html=1;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;align=center;" parent="CfUMpahbv_ZwyhBGr2wj-5" vertex="1">
                     <mxGeometry y="26" width="240" height="74" as="geometry"/>
                 </mxCell>
-                <mxCell id="CfUMpahbv_ZwyhBGr2wj-11" value="Output/Input:&lt;br&gt;Trending Topics" style="html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=2;fontFamily=Verdana;fontSize=12;align=center;shape=mxgraph.ios7ui.horLines;fillColor=#ffe6cc;strokeColor=#d79b00;gradientColor=#60A917;" parent="1" vertex="1">
-                    <mxGeometry x="55" y="119" width="190" height="70" as="geometry"/>
+                <mxCell id="CfUMpahbv_ZwyhBGr2wj-11" value="&lt;b&gt;Output/Input:&lt;br&gt;Trending Topics&lt;br&gt;on Home Page&lt;/b&gt;" style="html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=2;fontFamily=Verdana;fontSize=12;align=center;shape=mxgraph.ios7ui.horLines;fillColor=#FFB366;strokeColor=#d79b00;gradientColor=#60A917;" parent="1" vertex="1">
+                    <mxGeometry x="55" y="146" width="190" height="70" as="geometry"/>
                 </mxCell>
-                <mxCell id="6" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1" source="4" target="21ea969265ad0168-30" edge="1">
+                <mxCell id="6" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeWidth=3;fillColor=#60a917;strokeColor=#2D7600;" parent="1" source="4" target="21ea969265ad0168-30" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="4" value="&lt;font color=&quot;#ffffff&quot;&gt;5. Build Persistent Corpus&lt;/font&gt;" style="swimlane;html=1;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#60A917;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;swimlaneFillColor=#ffffff;align=center;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;strokeColor=#82b366;" parent="1" vertex="1">
@@ -88,22 +88,22 @@
                 <mxCell id="5" value="&lt;span style=&quot;font-family: &amp;#34;verdana&amp;#34;&quot;&gt;Persist data in text&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;font-family: &amp;#34;verdana&amp;#34;&quot;&gt;document or database. Append each tweet onto Corpus&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;align=center;" parent="4" vertex="1">
                     <mxGeometry y="26" width="240" height="74" as="geometry"/>
                 </mxCell>
-                <mxCell id="17" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=0;entryX=0;entryY=0.595;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="9" target="21ea969265ad0168-30" edge="1">
+                <mxCell id="17" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=0;entryX=0;entryY=0.595;entryDx=0;entryDy=0;entryPerimeter=0;fillColor=#f0a30a;strokeColor=#BD7000;strokeWidth=3;" parent="1" source="9" target="21ea969265ad0168-30" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="9" value="N. Get Trending Topics in the News" style="swimlane;html=1;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#ffe6cc;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;swimlaneFillColor=#ffffff;align=center;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;strokeColor=#d79b00;" parent="1" vertex="1">
+                <mxCell id="9" value="N=0. Get Trending Topics in the News" style="swimlane;html=1;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#FFB366;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;swimlaneFillColor=#ffffff;align=center;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;strokeColor=#d79b00;" parent="1" vertex="1">
                     <mxGeometry x="-310" y="451" width="240" height="100" as="geometry"/>
                 </mxCell>
                 <mxCell id="10" value="Get the 20 most recent tweets for all of the 6 news sources and run the topic modeling algorithm against it" style="text;html=1;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;align=center;" parent="9" vertex="1">
                     <mxGeometry y="26" width="240" height="74" as="geometry"/>
                 </mxCell>
-                <mxCell id="20" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=0;" parent="1" source="18" target="CfUMpahbv_ZwyhBGr2wj-6" edge="1">
+                <mxCell id="20" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=0;strokeWidth=3;fillColor=#60a917;strokeColor=#2D7600;" parent="1" source="18" target="CfUMpahbv_ZwyhBGr2wj-6" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="18" value="N. PLSA Algorithm" style="swimlane;html=1;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#60A917;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;swimlaneFillColor=#ffffff;align=center;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;strokeColor=#82B366;" parent="1" vertex="1">
+                <mxCell id="18" value="&lt;font color=&quot;#ffffff&quot;&gt;N. PLSA Algorithm&lt;/font&gt;" style="swimlane;html=1;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#60A917;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;swimlaneFillColor=#ffffff;align=center;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;strokeColor=#82B366;" parent="1" vertex="1">
                     <mxGeometry x="-298" y="283" width="240" height="100" as="geometry"/>
                 </mxCell>
-                <mxCell id="19" value="Calculate P(w|z) as shown in images titled: &quot;Document #56.png&quot; and &quot;Iteration #56 P(w|z)&quot;" style="text;html=1;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;align=center;" parent="18" vertex="1">
+                <mxCell id="19" value="Use PLSA to define trending topics based on a random selection of 50 documents (for performance)&amp;nbsp;within the corpus." style="text;html=1;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;align=center;" parent="18" vertex="1">
                     <mxGeometry y="26" width="240" height="74" as="geometry"/>
                 </mxCell>
             </root>
