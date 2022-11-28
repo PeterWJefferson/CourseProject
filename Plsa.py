@@ -1,5 +1,7 @@
 import numpy as np
 import math
+import heapq
+import random
 
 
 def normalize(input_matrix):
@@ -46,24 +48,13 @@ class Corpus(object):
         Update self.number_of_documents
         """
         
-        # print(data[2])
-            
-        # topic = np.loadtxt(data[:,0],dtype=int)
-        # docs = np.genfromtxt(self.documents_path,delimiter=" ", dtype=str)
-        # data = np.genfromtxt(self.documents_path, dtype=str)
+
         with open(self.documents_path, 'r') as file:
             for line in file.readlines():
                 doc = list()
                 doc.extend(line.split())
                 self.documents.append(doc)
-                # self.documents.append(doc)
                 self.number_of_documents += 1
-
-        # print(self.documents)
-        print(len(self.documents))
-        print(self.number_of_documents)
-        # print(len(docs))
-        # num_docs = docs.shape[0]
 
 
     def build_vocabulary(self):
@@ -73,14 +64,10 @@ class Corpus(object):
 
         Update self.vocabulary_size
         """
-        stop_words = None
-        with open('lemur-stopwords.txt') as lemur_file:
-            stop_words = lemur_file.readlines()
         _set = set()
         for document in self.documents:
             _set.update(document)
-        filtered = [x for x in set(_set) if x not in stop_words]
-        self.vocabulary = filtered
+        self.vocabulary = _set
         self.vocabulary_size = len(self.vocabulary)
 
     def build_term_doc_matrix(self):
@@ -126,7 +113,7 @@ class Corpus(object):
     def initialize(self, number_of_topics, random=False):
         """ Call the functions to initialize the matrices document_topic_prob and topic_word_prob
         """
-        print("Initializing...")
+        print("Initializing PLSA...")
 
         if random:
             self.initialize_randomly(number_of_topics)
@@ -136,7 +123,7 @@ class Corpus(object):
     def expectation_step(self):
         """ The E-step updates P(z | w, d)
         """
-        print("E step:")
+        # print("E step:")
         
         self.topic_word_prob = np.nan_to_num(self.topic_word_prob)
         for document in range(self.topic_prob.shape[0]):
@@ -148,7 +135,7 @@ class Corpus(object):
     def maximization_step(self, number_of_topics):
         """ The M-step updates P(w | z)
         """
-        print("M step:")
+        # print("M step:")
         
         # update P(w | z)
         
@@ -182,7 +169,7 @@ class Corpus(object):
         """
         Model topics.
         """
-        print ("EM iteration begins...")
+        # print ("EM iteration begins...")
         
         # build term-doc matrix
         self.build_term_doc_matrix()
@@ -193,7 +180,7 @@ class Corpus(object):
         self.topic_prob = np.zeros([self.number_of_documents, number_of_topics, self.vocabulary_size], dtype=np.float)
 
         # P(z | d) P(w | z)
-        self.initialize(number_of_topics, random=True)
+        self.initialize(number_of_topics, random=False)
 
         # Run the EM algorithm
         current_likelihood = 0.0
@@ -201,8 +188,7 @@ class Corpus(object):
         prev_prob = self.topic_prob.copy()
 
         for iteration in range(max_iter):
-            print("Iteration #" + str(iteration + 1) + "...")
-
+            # print("Iteration #" + str(iteration + 1) + "...")
             self.expectation_step()
             prev_prob = self.topic_prob.copy()
             self.maximization_step(number_of_topics)
@@ -211,24 +197,25 @@ class Corpus(object):
             if iteration > 100 and abs(current_likelihood - tmp_likelihood) < epsilon/10:
                 return tmp_likelihood
             current_likelihood = tmp_likelihood
-            print(max(self.likelihoods))
+            # print(max(self.likelihoods))
 
 
 
-def main():
-    documents_path = 'data/DBLP.txt'
+def get_topics(file_path = 'data/DBLP.txt', top_N = 5, depth = 10):
+    documents_path = file_path
     corpus = Corpus(documents_path)  # instantiate corpus
+    lines = open(file_path).readlines()
+    random.shuffle(lines)
+    open(file_path, 'w').writelines(lines)
     corpus.build_corpus()
     corpus.build_vocabulary()
-    print(corpus.vocabulary)
-    print("Vocabulary size:" + str(len(corpus.vocabulary)))
-    print("Number of documents:" + str(len(corpus.documents)))
     number_of_topics = 2
-    max_iterations = 500
+    max_iterations = depth
     epsilon = 0.001
     corpus.plsa(number_of_topics, max_iterations, epsilon)
-    
-
-
-if __name__ == '__main__':
-    main()
+    prob_sums = corpus.topic_word_prob.sum(axis=0)
+    top_indices = heapq.nlargest(5, range(len(prob_sums)), key=list(prob_sums).__getitem__)
+    top_N_topics = []
+    for index in top_indices:
+        top_N_topics.append(list(corpus.vocabulary)[index])
+    return top_N_topics
