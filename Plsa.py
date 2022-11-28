@@ -48,13 +48,21 @@ class Corpus(object):
         Update self.number_of_documents
         """
         
-
-        with open(self.documents_path, 'r') as file:
-            for line in file.readlines():
-                doc = list()
-                doc.extend(line.split())
-                self.documents.append(doc)
-                self.number_of_documents += 1
+        N_lines = 50
+        with open(self.documents_path) as corpus_file:
+            first_50 = [next(corpus_file) for x in range(N_lines)]
+        for line in first_50:
+            doc = list()
+            doc.extend(line.split())
+            self.documents.append(doc)
+            self.number_of_documents += 1
+                
+        # with open(self.documents_path, 'r') as file:
+        #     for line in file.readlines():
+        #         doc = list()
+        #         doc.extend(line.split())
+        #         self.documents.append(doc)
+        #         self.number_of_documents += 1
 
 
     def build_vocabulary(self):
@@ -188,7 +196,6 @@ class Corpus(object):
         prev_prob = self.topic_prob.copy()
 
         for iteration in range(max_iter):
-            # print("Iteration #" + str(iteration + 1) + "...")
             self.expectation_step()
             prev_prob = self.topic_prob.copy()
             self.maximization_step(number_of_topics)
@@ -197,11 +204,10 @@ class Corpus(object):
             if iteration > 100 and abs(current_likelihood - tmp_likelihood) < epsilon/10:
                 return tmp_likelihood
             current_likelihood = tmp_likelihood
-            # print(max(self.likelihoods))
 
 
 
-def get_topics(file_path = 'data/DBLP.txt', top_N = 5, depth = 10):
+def get_topics(file_path = 'data/DBLP.txt', top_N = 5, depth = 15):
     documents_path = file_path
     corpus = Corpus(documents_path)  # instantiate corpus
     lines = open(file_path).readlines()

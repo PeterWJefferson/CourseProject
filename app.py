@@ -88,6 +88,11 @@ def tweets(user_query):
     if request.method == 'POST':
         '''Getting the query results from Twitter and returning it to the api caller'''
         tweets = api.get_tweets(query=user_query, count=50)
+    dblp = open('data/DBLP.txt', 'a')
+    if tweets:
+        for tweet in tweets:
+            clean_tweet = strip_short(strip_punctuation(remove_stopwords(strip_non_alphanum(tweet['text']))), minsize=5)
+            dblp.write("{}\n".format(clean_tweet.replace("\n", " ").lower()))
         return tweets
 
 
@@ -108,7 +113,6 @@ def news_tweets(user_query=None, news_sources=[]):
         for tweet in tweets:
             clean_tweet = strip_short(strip_punctuation(remove_stopwords(strip_non_alphanum(tweet['text']))), minsize=5)
             dblp.write("{}\n".format(clean_tweet.replace("\n", " ").lower()))
-            print(tweet)
     return tweets
 
 
