@@ -105,7 +105,7 @@ def tweets(user_query):
 
             searches = api.get_recent_searches()
             print("This is the cleaned tweet prior to checking for searched terms: ", clean_tweet)
-            if len(searches) > 1:
+            if len(searches) > 0:
                 for search in searches:
                     for word in search.split():
                         if word in clean_tweet:
