@@ -12,7 +12,7 @@ app = Flask(__name__)  # , template_folder='../templates', static_url_path="/")
 
 @app.route('/')
 def index():
-    # TODO: Call PLSA with DBLP.txt file
+    # TODO: Call PLSA with tweet_corpus.txt file
 
     # TODO: store returned topics in a list
     recommended_topics = ["biden", "trump", "healthcare", "Ukraine war"]
@@ -88,7 +88,7 @@ def tweets(user_query):
     if request.method == 'POST':
         '''Getting the query results from Twitter and returning it to the api caller'''
         tweets = api.get_tweets(query=user_query, count=50)
-    dblp = open('data/DBLP.txt', 'a', encoding='utf-8')
+    tweet_corpus = open('data/tweet_corpus.txt', 'a', encoding='utf-8')
     if tweets:
         for tweet in tweets:
             clean_tweet = strip_short(strip_punctuation(remove_stopwords(strip_non_alphanum(tweet['text']))), minsize=5)
@@ -102,7 +102,7 @@ def tweets(user_query):
                             clean_tweet = clean_tweet.replace(word, "").replace("  ", " ")
 
             print("This is the cleaned tweet after checking for searched terms: ", clean_tweet)
-            dblp.write("{}\n".format(clean_tweet.replace("\n", " ").lower()))
+            tweet_corpus.write("{}\n".format(clean_tweet.replace("\n", " ").lower()))
         return tweets
 
 
@@ -118,11 +118,11 @@ def news_tweets(user_query=None, news_sources=[]):
     if request.method == 'POST':
         '''Getting the query results from Twitter and returning it to the api caller'''
         tweets = api.query_twitter_users(query=query, count=50, user_list=news_sources)
-    dblp = open('data/DBLP.txt', 'a')
+    tweet_corpus = open('data/tweet_corpus.txt', 'a')
     if tweets:
         for tweet in tweets:
             clean_tweet = strip_short(strip_punctuation(remove_stopwords(strip_non_alphanum(tweet['text']))), minsize=5)
-            dblp.write("{}\n".format(clean_tweet.replace("\n", " ").lower()))
+            tweet_corpus.write("{}\n".format(clean_tweet.replace("\n", " ").lower()))
     return tweets
 
 

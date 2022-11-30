@@ -56,7 +56,7 @@ class TwitterClient(object):
         try:
             # With this, I get the error: AttributeError: 'API' object has no attribute 'search'. This could be a
             # versioning issue fetched_tweets = self.api.search(q = query, count = count)
-            fetched_tweets = self.api.search_tweets(q=query, count=count)
+            fetched_tweets = self.api.search_tweets(q=query, count=count, tweet_mode="extended")
 
             instance = self.add_to_recent(query)
             print("Recent searches are the following: ", instance)
@@ -64,8 +64,8 @@ class TwitterClient(object):
             for tweet in fetched_tweets:
                 parsed_tweet = {}
                 parsed_tweet['id'] = tweet.id
-                parsed_tweet['text'] = tweet.text
-                parsed_tweet['sentiment'] = self.get_tweet_sentiment(tweet.text)
+                parsed_tweet['text'] = tweet.full_text.split(" https://")[0]
+                parsed_tweet['sentiment'] = self.get_tweet_sentiment(tweet.full_text.split(" https://")[0])
                 parsed_tweet['source'] = tweet.user.screen_name
 
                 if tweet.retweet_count > 0:
@@ -92,13 +92,13 @@ class TwitterClient(object):
             if query == None:
                 for user in user_list:
 
-                    fetched_tweets += self.api.search_tweets(q="from:{}".format(user))
+                    fetched_tweets += self.api.search_tweets(q="from:{}".format(user), tweet_mode="extended")
                     # print("Fetched tweets: {}".format(fetched_tweets))
                     for tweet in fetched_tweets:
                         parsed_tweet = {}
                         parsed_tweet['id'] = tweet.id
-                        parsed_tweet['text'] = tweet.text
-                        parsed_tweet['sentiment'] = self.get_tweet_sentiment(tweet.text)
+                        parsed_tweet['text'] = tweet.full_text.split(" https://")[0]
+                        parsed_tweet['sentiment'] = self.get_tweet_sentiment(tweet.full_text.split(" https://")[0])
                         parsed_tweet['source'] = user
 
                         if tweet.retweet_count > 0:
@@ -110,12 +110,12 @@ class TwitterClient(object):
             else:
                 for user in user_list:
 
-                    fetched_tweets += self.api.search_tweets(q="from:{} {}".format(user, query))
+                    fetched_tweets += self.api.search_tweets(q="from:{} {}".format(user, query), tweet_mode="extended")
                     # print("Fetched tweets: {}".format(fetched_tweets))
                     for tweet in fetched_tweets:
                         parsed_tweet = {}
-                        parsed_tweet['text'] = tweet.text
-                        parsed_tweet['sentiment'] = self.get_tweet_sentiment(tweet.text)
+                        parsed_tweet['text'] = tweet.full_text.split(" https://")[0]
+                        parsed_tweet['sentiment'] = self.get_tweet_sentiment(tweet.full_text.split(" https://")[0])
                         parsed_tweet['source'] = user
                         if tweet.retweet_count > 0:
                             if parsed_tweet not in tweets:
