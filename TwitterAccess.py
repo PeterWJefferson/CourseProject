@@ -6,6 +6,7 @@ from textblob import TextBlob
 
 app = Flask(__name__)
 
+SEARCH_CORPUS = []
 
 class TwitterClient(object):
 
@@ -57,11 +58,14 @@ class TwitterClient(object):
             # versioning issue fetched_tweets = self.api.search(q = query, count = count)
             fetched_tweets = self.api.search_tweets(q=query, count=count)
 
+            instance = self.add_to_recent(query)
+            print("Recent searches are the following: ", instance)
+
             for tweet in fetched_tweets:
                 parsed_tweet = {}
                 parsed_tweet['id'] = tweet.id
-                parsed_tweet['text'] = tweet.text.split("https://")[0]
-                parsed_tweet['sentiment'] = self.get_tweet_sentiment(tweet.text.split("https://")[0])
+                parsed_tweet['text'] = tweet.text
+                parsed_tweet['sentiment'] = self.get_tweet_sentiment(tweet.text)
                 parsed_tweet['source'] = tweet.user.screen_name
 
                 if tweet.retweet_count > 0:
@@ -93,8 +97,8 @@ class TwitterClient(object):
                     for tweet in fetched_tweets:
                         parsed_tweet = {}
                         parsed_tweet['id'] = tweet.id
-                        parsed_tweet['text'] = tweet.text.split("https://")[0].split(" https://")[0]
-                        parsed_tweet['sentiment'] = self.get_tweet_sentiment(tweet.text.split("https://")[0])
+                        parsed_tweet['text'] = tweet.text
+                        parsed_tweet['sentiment'] = self.get_tweet_sentiment(tweet.text)
                         parsed_tweet['source'] = user
 
                         if tweet.retweet_count > 0:
@@ -110,9 +114,8 @@ class TwitterClient(object):
                     # print("Fetched tweets: {}".format(fetched_tweets))
                     for tweet in fetched_tweets:
                         parsed_tweet = {}
-                        parsed_tweet['id'] = tweet.id
-                        parsed_tweet['text'] = tweet.text.split("https://")[0]
-                        parsed_tweet['sentiment'] = self.get_tweet_sentiment(tweet.text.split("https://")[0])
+                        parsed_tweet['text'] = tweet.text
+                        parsed_tweet['sentiment'] = self.get_tweet_sentiment(tweet.text)
                         parsed_tweet['source'] = user
                         if tweet.retweet_count > 0:
                             if parsed_tweet not in tweets:
@@ -124,6 +127,17 @@ class TwitterClient(object):
         # could be a versioning issue except tweepy.TweepError as e:
         except tweepy.errors.TweepyException as e:
             print("Error : " + str(e))
+
+    def add_to_recent(self, query):
+        if len(SEARCH_CORPUS) >= 9: 
+            SEARCH_CORPUS.pop(0)
+
+        SEARCH_CORPUS.append(query.lower())
+    
+    def get_recent_searches(self):
+        return SEARCH_CORPUS
+
+
 
 
 def search():
@@ -137,6 +151,7 @@ def main(_query):
     #   When count = 200, I get the error: Max retries exceeded with url: /1.1/search/tweets.json
     #   tweets = api.get_tweets(query = query_, count = 200)
     tweets = api.get_tweets(query=query_, count=50)
+    
     positive_tweets = [tweet for tweet in tweets if tweet['sentiment'] == 'positive']
     print("Positive tweets percentage: {} %".format(100 * len(positive_tweets) / len(tweets)))
 
@@ -153,6 +168,7 @@ def main(_query):
     print("\n\nNegative tweets:")
     for tweet in negative_tweets[:10]:
         print(tweet['text'])
+
 
 
 if __name__ == "__main__":
