@@ -2,7 +2,6 @@ from flask import Flask, request, render_template, redirect, url_for
 from gensim.parsing.preprocessing import remove_stopwords, strip_punctuation, strip_short, strip_non_alphanum
 import json
 import TwitterAccess
-import LnRanker
 from Plsa import *
 from sources import *
 
@@ -12,13 +11,23 @@ app = Flask(__name__)  # , template_folder='../templates', static_url_path="/")
 
 @app.route('/')
 def index():
-    # TODO: Call PLSA with DBLP.txt file
+    recommended_topics = []
+    # Call our Topic Modeling function using recent search topics as input to display recommended searches
+    recommended_topics = get_topics()
 
-    # TODO: store returned topics in a list
-    recommended_topics = ["biden", "trump", "healthcare", "Ukraine war"]
-    # TODO: return the clean list to the index.html template. Maybe limit the number or topics returned to <10
+    # If there is nothing in the recent search file, just return generic political topics for the first search
+    # if len(recommended_topics) < 1:
+    #     recommended_topics = ["biden", "trump", "healthcare", "Ukraine war"]
 
     return render_template("index.html", recommended_search_topics=recommended_topics)
+
+
+@app.route('/delete_search_topics', methods=['POST'])
+def delete_search_topics():
+
+    # TODO: Call function that deletes the stored search topic history.
+
+    return render_template("index.html")
 
 
 @app.route('/query', methods=['POST'])
@@ -58,13 +67,14 @@ def query():
 
             total = positive + neutral + negative
 
-            positive_percent = positive / total
-            neutral_percent = neutral / total
-            negative_percent = negative / total
+            if total > 0:
+                positive_percent = positive / total
+                neutral_percent = neutral / total
+                negative_percent = negative / total
 
-            news_source_sentiments[account][0]['positive'] = round(positive_percent * 100, 2)
-            news_source_sentiments[account][0]['neutral'] = round(neutral_percent * 100, 2)
-            news_source_sentiments[account][0]['negative'] = round(negative_percent * 100, 2)
+                news_source_sentiments[account][0]['positive'] = round(positive_percent * 100, 2)
+                news_source_sentiments[account][0]['neutral'] = round(neutral_percent * 100, 2)
+                news_source_sentiments[account][0]['negative'] = round(negative_percent * 100, 2)
 
         print(news_source_sentiments)
 
