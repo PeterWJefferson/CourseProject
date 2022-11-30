@@ -207,7 +207,7 @@ class Corpus(object):
 
 
 
-def get_topics(file_path = 'data/tweet_corpus.txt', top_N = 7, depth = 30):
+def get_topics(file_path = 'data/tweet_corpus.txt', top_N = 7, depth = 20):
     documents_path = file_path
     corpus = Corpus(documents_path)  # instantiate corpus
     lines = open(file_path).readlines()
@@ -220,7 +220,7 @@ def get_topics(file_path = 'data/tweet_corpus.txt', top_N = 7, depth = 30):
     epsilon = 0.001
     corpus.plsa(number_of_topics, max_iterations, epsilon)
     prob_sums = corpus.topic_word_prob.sum(axis=0)
-    top_indices = heapq.nlargest(5, range(len(prob_sums)), key=list(prob_sums).__getitem__)
+    top_indices = heapq.nlargest(top_N, range(len(prob_sums)), key=list(prob_sums).__getitem__)
     top_N_topics = []
     for index in top_indices:
         top_N_topics.append(list(corpus.vocabulary)[index])

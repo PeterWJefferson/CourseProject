@@ -6,7 +6,7 @@ from textblob import TextBlob
 
 app = Flask(__name__)
 
-SEARCH_CORPUS = []
+SEARCH_CORPUS = ["http", "https"]
 
 class TwitterClient(object):
 
@@ -64,8 +64,8 @@ class TwitterClient(object):
             for tweet in fetched_tweets:
                 parsed_tweet = {}
                 parsed_tweet['id'] = tweet.id
-                parsed_tweet['text'] = tweet.full_text.split(" https://")[0]
-                parsed_tweet['sentiment'] = self.get_tweet_sentiment(tweet.full_text.split(" https://")[0])
+                parsed_tweet['text'] = tweet.full_text.split(" http")[0]
+                parsed_tweet['sentiment'] = self.get_tweet_sentiment(tweet.full_text.split(" http")[0])
                 parsed_tweet['source'] = tweet.user.screen_name
 
                 if tweet.retweet_count > 0:
@@ -97,8 +97,8 @@ class TwitterClient(object):
                     for tweet in fetched_tweets:
                         parsed_tweet = {}
                         parsed_tweet['id'] = tweet.id
-                        parsed_tweet['text'] = tweet.full_text.split(" https://")[0]
-                        parsed_tweet['sentiment'] = self.get_tweet_sentiment(tweet.full_text.split(" https://")[0])
+                        parsed_tweet['text'] = tweet.full_text.split(" http")[0]
+                        parsed_tweet['sentiment'] = self.get_tweet_sentiment(tweet.full_text.split(" http")[0])
                         parsed_tweet['source'] = user
 
                         if tweet.retweet_count > 0:
@@ -114,8 +114,8 @@ class TwitterClient(object):
                     # print("Fetched tweets: {}".format(fetched_tweets))
                     for tweet in fetched_tweets:
                         parsed_tweet = {}
-                        parsed_tweet['text'] = tweet.full_text.split(" https://")[0]
-                        parsed_tweet['sentiment'] = self.get_tweet_sentiment(tweet.full_text.split(" https://")[0])
+                        parsed_tweet['text'] = tweet.full_text.split(" http")[0]
+                        parsed_tweet['sentiment'] = self.get_tweet_sentiment(tweet.full_text.split(" http")[0])
                         parsed_tweet['source'] = user
                         if tweet.retweet_count > 0:
                             if parsed_tweet not in tweets:
