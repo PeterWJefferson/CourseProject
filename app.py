@@ -101,18 +101,21 @@ def tweets(user_query):
     tweet_corpus = open('data/tweet_corpus.txt', 'a', encoding='utf-8')
     if tweets:
         for tweet in tweets:
-            clean_tweet = strip_short(strip_punctuation(remove_stopwords(strip_non_alphanum(tweet['text']))), minsize=5)
+            clean_tweet = strip_short(strip_punctuation(remove_stopwords(strip_non_alphanum(tweet['text']))), minsize=5).lower()
 
             searches = api.get_recent_searches()
             print("This is the cleaned tweet prior to checking for searched terms: ", clean_tweet)
             if len(searches) > 0:
                 for search in searches:
                     for word in search.split():
-                        if word in clean_tweet:
+                        if word.lower() in clean_tweet:
                             clean_tweet = clean_tweet.replace(word, "").replace("  ", " ")
-
+                        if "https" in clean_tweet:
+                            clean_tweet = clean_tweet.replace("https", "").replace("  ", " ")
+                        if "http" in clean_tweet:
+                            clean_tweet = clean_tweet.replace("https", "").replace("  ", " ")
             print("This is the cleaned tweet after checking for searched terms: ", clean_tweet)
-            tweet_corpus.write("{}\n".format(clean_tweet.replace("\n", " ").lower()))
+            tweet_corpus.write("{}\n".format(clean_tweet.replace("\n", " ")))
         return tweets
 
 

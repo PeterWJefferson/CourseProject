@@ -207,7 +207,7 @@ class Corpus(object):
 
 
 
-def get_topics(file_path = 'data/tweet_corpus.txt', top_N = 7, depth = 20):
+def get_topics(file_path = 'data/tweet_corpus.txt', top_N = 7, depth = 50):
     documents_path = file_path
     corpus = Corpus(documents_path)  # instantiate corpus
     lines = open(file_path).readlines()
