@@ -98,10 +98,20 @@ def tweets(user_query):
     if request.method == 'POST':
         '''Getting the query results from Twitter and returning it to the api caller'''
         tweets = api.get_tweets(query=user_query, count=50)
-    dblp = open('data/DBLP.txt', 'a')
+    dblp = open('data/DBLP.txt', 'a', encoding='utf-8')
     if tweets:
         for tweet in tweets:
             clean_tweet = strip_short(strip_punctuation(remove_stopwords(strip_non_alphanum(tweet['text']))), minsize=5)
+
+            searches = api.get_recent_searches()
+            print("This is the cleaned tweet prior to checking for searched terms: ", clean_tweet)
+            if len(searches) > 1:
+                for search in searches:
+                    for word in search.split():
+                        if word in clean_tweet:
+                            clean_tweet = clean_tweet.replace(word, "").replace("  ", " ")
+
+            print("This is the cleaned tweet after checking for searched terms: ", clean_tweet)
             dblp.write("{}\n".format(clean_tweet.replace("\n", " ").lower()))
         return tweets
 
