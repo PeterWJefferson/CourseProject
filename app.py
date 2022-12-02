@@ -82,7 +82,7 @@ def tweets(user_query):
         tweets = api.get_tweets(query=user_query, count=50)
     tweet_corpus = open('data/tweet_corpus.txt', 'a', encoding='utf-8')
     if tweets:
-        clean_tweets = tweet_refinery(api, tweets)
+        clean_tweets = document_refinery(api, tweets)
         for clean_tweet in clean_tweets:
             if clean_tweet:
                 add_to_corpus(clean_tweet)
@@ -103,14 +103,14 @@ def news_tweets(user_query=None, news_sources=[]):
         '''Getting the query results from Twitter and returning it to the api caller'''
         tweets = api.query_twitter_users(query=query, count=50, user_list=news_sources)
     if tweets:
-        clean_tweets = tweet_refinery(api, tweets)
+        clean_tweets = document_refinery(api, tweets)
         for clean_tweet in clean_tweets:
             if clean_tweet:
                 add_to_corpus(clean_tweet)
         for tweet in tweets:
             if re.search(r"http(s)?://t\.co/([A-Za-z]+[A-Za-z0-9-_]+)", tweet['text']):
                 tweet['text'] = re.sub("http(s)?://t\.co/([A-Za-z]+[A-Za-z0-9-_]+)", "", tweet['text'])
-        clean_tweets = tweet_refinery(api, tweets)
+        clean_tweets = document_refinery(api, tweets)
         for clean_tweet in clean_tweets:
             if clean_tweet:
                 add_to_corpus(clean_tweet)
@@ -140,14 +140,14 @@ def show_user_profile(username=None):
 def show_post(post_id):
     return str(post_id)
 
-def tweet_refinery(api, tweets):
+def document_refinery(api, tweets):
     """
     Takes in a list of returned tweets from the Twitter api, cleans, adn returns them.
     Tweets are disti
     :param tweets: list of dictionary tweets
     :return: list of clean tweets
     """
-    clean_tweets = []
+    corpus_docs = []
     clean_tweet = ""
     for tweet in tweets:
         if re.search(r"(?<=^|(?<=[^a-zA-Z0-9-_\.]))@([A-Za-z]+[A-Za-z0-9-_]+)", tweet['text']):
@@ -173,13 +173,13 @@ def tweet_refinery(api, tweets):
             clean_tweet = strip_short(strip_punctuation(remove_stopwords(strip_non_alphanum(clean_tweet))), minsize=5).lower()
             print("This is the cleaned tweet after checking for searched terms: ", clean_tweet)
         if clean_tweet:
-            clean_tweets.append(clean_tweet)
+            corpus_docs.append(clean_tweet)
             clean_tweet = ""
-    return clean_tweets            
+    return corpus_docs            
 
-def add_to_corpus(clean_tweet):
-    tweet_corpus = open('data/tweet_corpus.txt', 'a', encoding='utf-8')
-    tweet_corpus.write("{}\n".format(clean_tweet.replace("\n", " ")))
+def add_to_corpus(corpus_doc):
+    document_corpus = open('data/tweet_corpus.txt', 'a', encoding='utf-8')
+    document_corpus.write("{}\n".format(corpus_doc.replace("\n", " ")))
     
 def get_search_parts(searches):
     temp_parts = []
