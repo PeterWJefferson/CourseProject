@@ -41,7 +41,7 @@
       <th>Account</th>
       <th>Tweet</th>
       <th>Sentiment</th>
-<!--      <th>Upvote</th>-->
+      <th>Subjectivity Score</th>
     </tr>
     </thead>
     <tbody>
@@ -51,8 +51,11 @@
         <td>
           <a href="https://twitter.com/twitter/statuses/{{ tweet['id'] }}" target="_blank">{{ tweet['text'] }}</a></td>
         <td>{{ tweet['sentiment'] }}</td>
-<!--        <td> <a href=# id=upvote><button>Up Vote</button></a> </td>-->
-
+        {% if tweet['subjectivity'] > 0.35 %}
+          <td><FONT COLOR="#ff0000">{{ tweet['subjectivity'] }}</FONT></td>
+        {% else %}
+          <td><FONT COLOR="GREEN">{{ tweet['subjectivity'] }}</FONT></td>
+        {% endif %}
       </tr>
     {% endfor %}
     </tbody>
@@ -64,16 +67,30 @@
       <thead>
       <tr>
         {% for k,v in news_sentiments.items() %}
-        <th><a href="https://twitter.com/{{ k }}" target="_blank">@{{ k }}</a> Sentiment Analysis Percentages</th>
+        <th><a href="https://twitter.com/{{ k }}" target="_blank">@{{ k }}</a> Sentiment Analysis Percentages & Avg. Subjectivity</th>
       </tr>
       </thead>
       <tbody>
         <tr>
           {% for k1,v1 in v[0].items() %}
-          <td>{{ k1 }}: {{ v1 }}%</td>
+          <td><strong>{{ k1 }}</strong>: {{ v1 }}%</td>
           {% endfor %}
-          <td>Total Tweets: {{ v[1] }}</td>
+          <td><strong>Total Tweets:</strong> {{ v[1] }}</td>
           </tr>
+
+        <tbody>
+          <tr>
+            {% for sub_key, sub_val in news_subjectivity.items() %}
+              {% if sub_key == k %}
+                {% if sub_val[0] > 0.35 %}
+                  <td><strong>Avg. Subjectivity:</strong> <FONT COLOR="#ff0000">{{sub_val[0]}} </FONT></td>
+                {% else %}
+                  <td><strong>Avg. Subjectivity:</strong> <FONT COLOR="GREEN">{{sub_val[0]}} </FONT></td>
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+          </tr>
+
       {% endfor %}
       </tbody>
     </table>
@@ -87,6 +104,7 @@
     $(document).ready(function () {
       $('#data').DataTable({
         columns: [
+          null,
           null,
           null,
           null

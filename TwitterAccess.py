@@ -30,14 +30,20 @@ class TwitterClient(object):
         """
       Utility function to classify sentiment of passed tweet
       using textblob's sentiment method
+      Return as tuple (sentiment, subjectivity)
         """
         analysis = TextBlob(self.clean_tweet(tweet))
+
+        subjectivity = analysis.sentiment.subjectivity
+
         if analysis.sentiment.polarity > 0:
-            return 'positive'
+            return ('positive', subjectivity)
         elif analysis.sentiment.polarity == 0:
-            return 'neutral'
+            return ('neutral', subjectivity)
         else:
-            return 'negative'
+            return ('negative', subjectivity)
+
+
     def get_tweets(self, query, count=10):
         """
       Main function to fetch tweets and parse them.
@@ -54,7 +60,8 @@ class TwitterClient(object):
                 parsed_tweet = {}
                 parsed_tweet['id'] = tweet.id
                 parsed_tweet['text'] = tweet.full_text.split('http')[0]
-                parsed_tweet['sentiment'] = self.get_tweet_sentiment(tweet.full_text.split('http')[0])
+                parsed_tweet['sentiment'] = self.get_tweet_sentiment(tweet.full_text.split('http')[0])[0]
+                parsed_tweet['subjectivity'] = round(self.get_tweet_sentiment(tweet.full_text.split('http')[0])[1], 2)
                 parsed_tweet['source'] = tweet.user.screen_name
                 if tweet.retweet_count > 0:
                     if parsed_tweet not in tweets:
@@ -83,7 +90,8 @@ class TwitterClient(object):
                         parsed_tweet = {}
                         parsed_tweet['id'] = tweet.id
                         parsed_tweet['text'] = tweet.full_text.split('http')[0]
-                        parsed_tweet['sentiment'] = self.get_tweet_sentiment(tweet.full_text.split('http')[0])
+                        parsed_tweet['sentiment'] = self.get_tweet_sentiment(tweet.full_text.split('http')[0])[0]
+                        parsed_tweet['subjectivity'] = round(self.get_tweet_sentiment(tweet.full_text.split('http')[0])[1], 2)
                         parsed_tweet['source'] = user
                         if tweet.retweet_count > 0:
                             if parsed_tweet not in tweets:
@@ -98,7 +106,8 @@ class TwitterClient(object):
                     for tweet in fetched_tweets:
                         parsed_tweet = {}
                         parsed_tweet['text'] = tweet.full_text.split('http')[0]
-                        parsed_tweet['sentiment'] = self.get_tweet_sentiment(tweet.full_text.split('http')[0])
+                        parsed_tweet['sentiment'] = self.get_tweet_sentiment(tweet.full_text.split('http')[0])[0]
+                        parsed_tweet['subjectivity'] = round(self.get_tweet_sentiment(tweet.full_text.split('http')[0])[1], 2)
                         parsed_tweet['source'] = user
                         if tweet.retweet_count > 0:
                             if parsed_tweet not in tweets:

@@ -13,9 +13,6 @@ def index():
     recommended_topics = []
     # Call our Topic Modeling function using recent search topics as input to display recommended searches
     recommended_topics = get_topics()
-    # If there is nothing in the recent search file, just return generic political topics for the first search
-    # if len(recommended_topics) < 1:
-    #     recommended_topics = ["biden", "trump", "healthcare", "Ukraine war"]
     return render_template("index.html", recommended_search_topics=recommended_topics)
 
 @app.route('/delete_search_topics', methods=['POST'])
@@ -31,6 +28,8 @@ def query():
     list_of_news_accounts_to_search = []
     # Hold the number of sentiments (positive, neutral, negative) for each news source
     news_source_sentiments = {}
+    # Hold the subjectivity scores for each news source
+    news_source_subjectivity = {}
     # Go through each HTML checkbox and append the ones that have been selected, if any, to the
     #  list_of_news_accounts_to_search list.
     for news_source_name in news_source_names:
@@ -44,11 +43,19 @@ def query():
             news_source_sentiments[news_account] = [{'positive': 0,
                                                      'neutral': 0,
                                                      'negative': 0}, 0]
+
+            news_source_subjectivity[news_account] = []
+
         for tweet in tweets_to_display:
             news_account = tweet['source']
+
             tweet_sentiment = tweet['sentiment']
             news_source_sentiments[news_account][0][tweet_sentiment] += 1
             news_source_sentiments[news_account][1] += 1
+
+            tweet_subjectivity = tweet['subjectivity']
+            news_source_subjectivity[news_account].append(tweet_subjectivity)
+
         # Calculate the percentage of sentiments for each news account
         for account in news_source_sentiments.keys():
             positive = news_source_sentiments[account][0]['positive']
@@ -62,12 +69,17 @@ def query():
                 news_source_sentiments[account][0]['positive'] = round(positive_percent * 100, 2)
                 news_source_sentiments[account][0]['neutral'] = round(neutral_percent * 100, 2)
                 news_source_sentiments[account][0]['negative'] = round(negative_percent * 100, 2)
-        print(news_source_sentiments)
+
+        # Calculate the average subjectivity for each news account
+        for account in news_source_subjectivity.keys():
+            average_subjectivity = round(sum(news_source_subjectivity[account]) / len(news_source_subjectivity[account]), 2)
+            news_source_subjectivity[account] = [average_subjectivity]
+
     else:
         print(f"No explicit news source(s) selected, so searching all of twitter...")
         tweets_to_display = tweets(user_query=user_query)
     return render_template("results.html", tweet_list=tweets_to_display, query=user_query,
-                           news_sentiments=news_source_sentiments)
+                           news_sentiments=news_source_sentiments, news_subjectivity=news_source_subjectivity)
 
 @app.route('/upvote')
 def upvote_post():
@@ -171,7 +183,7 @@ def document_refinery(api, tweets):
                 
             #cleaning again because sometimes after removing recently searched words, it can leave a trailing 's' behind
             clean_tweet = strip_short(strip_punctuation(remove_stopwords(strip_non_alphanum(clean_tweet))), minsize=5).lower()
-            print("This is the cleaned tweet after checking for searched terms: ", clean_tweet)
+            # print("This is the cleaned tweet after checking for searched terms: ", clean_tweet)
         if clean_tweet:
             corpus_docs.append(clean_tweet)
             clean_tweet = ""
