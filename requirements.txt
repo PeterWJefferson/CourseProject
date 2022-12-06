@@ -1,0 +1,5 @@
+flask==1.1.2
+gensim==4.2.0
+textblob==0.17.1
+tweepy==4.8.0
+numpy==1.19.5
