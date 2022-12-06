@@ -11,14 +11,16 @@
 
 ## Papers:
 1. Project Proposal - [Project Proposal - MPDL - CS410.pdf](https://github.com/PeterWJefferson/CourseProject/blob/main/.docs/Project%20Proposal%20-%20MPDL%20-%20CS410.pdf)
-    - an overview of the project
-    - team member contributions
+    - Overview of the project
+    - Team member contributions
 2. Progress Report - [Progress Report - MPDL - CS410 Project.pdf](https://github.com/PeterWJefferson/CourseProject/blob/main/.docs/Progress%20Report%20-%20MPDL%20-%20CS410%20Project.pdf)
     
-    - related work and used libraries/models/previous projects
+    - Progress made by Nov 14, 2022
+    - Remaining tasks
+    - Any challenges/issues being faced
 3. Final Report - [Final Report - MPDL - CS410 Project.pdf](https://github.com/PeterWJefferson/CourseProject/blob/main/.docs/)
-    - libraries used
-    - implementation details
+    - Libraries used
+    - Implementation details
 4. Final Presentation - [Final Presentation - MPDL - CS410 Project.pptx](https://github.com/PeterWJefferson/CourseProject/blob/main/.docs/)
     - High-level overview of what our app is doing 
     - Diagram review
