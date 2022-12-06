@@ -43,8 +43,8 @@ class Corpus(object):
         
         N_lines = 30
         with open(self.documents_path) as corpus_file:
-            first_50 = [next(corpus_file) for x in range(N_lines)]
-        for line in first_50:
+            first_30 = [next(corpus_file) for x in range(N_lines)]
+        for line in first_30:
             doc = list()
             doc.extend(line.split())
             self.documents.append(doc)
@@ -176,7 +176,7 @@ class Corpus(object):
                 return tmp_likelihood
             current_likelihood = tmp_likelihood
 
-def get_topics(file_path = 'data/tweet_corpus.txt', top_N = 7, depth = 50):
+def get_topics(file_path = 'data/tweet_corpus.txt', top_N = 7, depth = 30):
     documents_path = file_path
     corpus = Corpus(documents_path)  # instantiate corpus
     lines = open(file_path).readlines()
