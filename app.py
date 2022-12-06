@@ -17,7 +17,30 @@ def index():
 
 @app.route('/delete_search_topics', methods=['POST'])
 def delete_search_topics():
-    # TODO: Call function that deletes the stored search topic history.
+    min_documents_in_corpus = 31
+
+    with open('data/tweet_corpus.txt', 'r') as tc:
+        corpus = tc.readlines()
+        corpus_len = len(corpus)
+        print('Total lines: ', corpus_len)
+
+        if corpus_len > min_documents_in_corpus:
+            # Delete the oldest documents from the top of the corpus, while always leaving 30 of the most recent
+            # documents (bottom of corpus)
+            lines_to_delete = list(range(corpus_len - min_documents_in_corpus))
+            print(f"Deleting lines {lines_to_delete[0]} to {lines_to_delete[-1]} in corpus...")
+
+            with open('data/tweet_corpus.txt', 'w') as tcw:
+                lines_kept = []
+                for number, line in enumerate(corpus):
+                    if number not in lines_to_delete:
+                        lines_kept.append(number)
+                        tcw.write(line)
+
+                print(f"Kept lines {lines_kept[0]} to {lines_kept[-1]}")
+        else:
+            print(f"Corpus has the minimum amount ({min_documents_in_corpus}) of documents in it already. Can't delete "
+                  f"any more documents.")
     return render_template("index.html")
 
 @app.route('/query', methods=['POST'])
