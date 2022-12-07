@@ -55,7 +55,8 @@ class TwitterClient(object):
             # versioning issue fetched_tweets = self.api.search(q = query, count = count)
             fetched_tweets = self.api.search_tweets(q=query, count=count, tweet_mode="extended")
             instance = self.add_to_recent(query)
-            print("Recent searches are the following: ", instance)
+            recents = self.get_recent_searches()
+            print("Recent searches are the following: {}".format(recents))
             for tweet in fetched_tweets:
                 parsed_tweet = {}
                 parsed_tweet['id'] = tweet.id

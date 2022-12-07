@@ -183,29 +183,25 @@ def document_refinery(api, tweets):
     :return: list of clean tweets
     """
     corpus_docs = []
-    clean_tweet = ""
+   
     for tweet in tweets:
-        if re.search(r"(?<=^|(?<=[^a-zA-Z0-9-_\.]))@([A-Za-z]+[A-Za-z0-9-_]+)", tweet['text']):
-            clean_tweet = re.sub("(?<=^|(?<=[^a-zA-Z0-9-_\.]))@([A-Za-z]+[A-Za-z0-9-_]+)", "", tweet['text'])
-        if re.search(r"http(s)?://t\.co/([A-Za-z]+[A-Za-z0-9-_]+)", tweet['text']):
+        clean_tweet = tweet['text'].lower()
+        if re.search(r"http(s)?://t\.co/([A-Za-z]+[A-Za-z0-9-_]+)", clean_tweet):
             tweet['text'] = re.sub("http(s)?://t\.co/([A-Za-z]+[A-Za-z0-9-_]+)", "", tweet['text'])
+            clean_tweet = re.sub("http(s)?://t\.co/([A-Za-z]+[A-Za-z0-9-_]+)", "", clean_tweet)
+        if re.search(r"(?<=^|(?<=[^a-zA-Z0-9-_\.]))@([A-Za-z]+[A-Za-z0-9-_]+)", clean_tweet):
+            clean_tweet = re.sub("(?<=^|(?<=[^a-zA-Z0-9-_\.]))@([A-Za-z]+[A-Za-z0-9-_]+)", "", clean_tweet)
+        clean_tweet = strip_non_alphanum(strip_punctuation(remove_stopwords(clean_tweet)))
         searches = api.get_recent_searches()
         search_parts = []
-        if len(searches) > 3:
+        if len(searches) > 2:
             search_parts = get_search_parts(searches)
         if clean_tweet is not "":
             for tweet_word in clean_tweet.split():
                 if tweet_word in search_parts:
-                    clean_tweet = clean_tweet.replace(tweet_word, "").replace("  ", " ")
-                if "https" in tweet_word:
-                    clean_tweet = clean_tweet.replace("https", "").replace("  ", " ")
-                if "http" in tweet_word:
-                    clean_tweet = clean_tweet.replace("http", "").replace("  ", " ")
-                if "http" in tweet_word:
-                    clean_tweet = clean_tweet.replace("http", "").replace("  ", " ")
-                
+                    clean_tweet = clean_tweet.replace(tweet_word, "").replace("  ", " ")                
             #cleaning again because sometimes after removing recently searched words, it can leave a trailing 's' behind
-            clean_tweet = strip_short(strip_punctuation(remove_stopwords(strip_non_alphanum(clean_tweet))), minsize=5).lower()
+            clean_tweet = strip_short(strip_non_alphanum(strip_punctuation(remove_stopwords(clean_tweet))), minsize=4)
             # print("This is the cleaned tweet after checking for searched terms: ", clean_tweet)
         if clean_tweet:
             corpus_docs.append(clean_tweet)
