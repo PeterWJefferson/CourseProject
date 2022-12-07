@@ -36,6 +36,3 @@
 - Start application
   - Execute flask: `flask run`
   - Open browser and go to the url http://localhost:5000
-
-## Evaluating the Application
-  - ...
