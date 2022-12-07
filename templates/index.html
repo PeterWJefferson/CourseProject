@@ -21,7 +21,7 @@
 
   <body>
   <br>
-    <form style="margin: 0 0 0 20px" action="delete_search_topics" method="post">
+    <form style="margin: 5px 0 0 20px" action="delete_search_topics" method="post">
       <input class="delete_button" type="submit" value="Click to clear search data and topics" name="delete_topics">
     </form>
 
@@ -42,7 +42,7 @@
         <ul class="ul, li">
           {% for topic in recommended_search_topics %}
           <li>
-            <input type="button" value="{{ topic }}" name="no" onclick="moveNumbers(this.value)">
+            <input type="button" value="{{ topic }}" name="no" onclick="moveNumbers(this.value)" style="box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19) !important;border-radius: 50px !important;background-color: #00ad5f;color: #fff;padding:5px;">
           </li>
           {% endfor %}
         </ul>
