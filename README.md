@@ -18,10 +18,10 @@
     - Progress made by Nov 14, 2022
     - Remaining tasks
     - Any challenges/issues being faced
-3. Final Report - [Final Report - MPDL - CS410 Project.pdf](https://github.com/PeterWJefferson/CourseProject/blob/main/.docs/)
+3. Final Report - [Final Report - MPDL - CS410 Project.pdf](https://github.com/PeterWJefferson/CourseProject/blob/main/.docs/Final%20Report%20-%20MPDL%20-%20CS410%20Project.pdf)
     - Libraries used
     - Implementation details
-4. Final Presentation - [Final Presentation - MPDL - CS410 Project.pptx](https://github.com/PeterWJefferson/CourseProject/blob/main/.docs/)
+4. Final Presentation - [Final Presentation - MPDL - CS410 Project.mp4](https://github.com/PeterWJefferson/CourseProject/blob/main/.docs/)
     - High-level overview of what our app is doing 
     - Diagram review
     - Review of requirements
