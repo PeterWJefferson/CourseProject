@@ -19,7 +19,7 @@ def index():
 def delete_search_topics():
     min_documents_in_corpus = 31
 
-    with open('data/tweet_corpus.txt', 'r') as tc:
+    with open('data/tweet_corpus.txt', 'r', encoding='utf-8') as tc:
         corpus = tc.readlines()
         corpus_len = len(corpus)
         print('Total lines: ', corpus_len)
@@ -30,7 +30,7 @@ def delete_search_topics():
             lines_to_delete = list(range(corpus_len - min_documents_in_corpus))
             print(f"Deleting lines {lines_to_delete[0]} to {lines_to_delete[-1]} in corpus...")
 
-            with open('data/tweet_corpus.txt', 'w') as tcw:
+            with open('data/tweet_corpus.txt', 'w', encoding='utf-8') as tcw:
                 lines_kept = []
                 for number, line in enumerate(corpus):
                     if number not in lines_to_delete:
