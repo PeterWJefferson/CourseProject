@@ -31,7 +31,7 @@
 - Download the code from github
 - Prepare environment
   - Switch to environment using python version >3.6.0
-  - Install the required dependencies: `pip install -r requirements.txt`
+  - Install the required dependencies: `pip install -r requirements.txt --upgrade`
   - Export the FLASK_APP environment variable to the app.py file: `export FLASK_APP=app.py`
 - Start application
   - Execute flask: `flask run`

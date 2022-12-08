@@ -196,7 +196,7 @@ def document_refinery(api, tweets):
         search_parts = []
         if len(searches) > 2:
             search_parts = get_search_parts(searches)
-        if clean_tweet is not "":
+        if clean_tweet != "":
             for tweet_word in clean_tweet.split():
                 if tweet_word in search_parts:
                     clean_tweet = clean_tweet.replace(tweet_word, "").replace("  ", " ")                
