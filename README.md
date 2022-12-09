@@ -21,7 +21,7 @@
 3. Final Report - [Final Report - MPDL - CS410 Project.pdf](https://github.com/PeterWJefferson/CourseProject/blob/main/.docs/Final%20Report%20-%20MPDL%20-%20CS410%20Project.pdf)
     - Libraries used
     - Implementation details
-4. Final Presentation - [CS410FinalProject.mp4](https://uillinoisedu.sharepoint.com/:v:/s/CS410/Ee6JzG8XDoBGl-WHFe_4IWYBntikWUeuz09HeyEDBkIlfQ?e=RBC8ko)
+4. Final Presentation - [CS410FinalProject.mp4](https://mediaspace.illinois.edu/media/t/1_m17gu9wt), [CS410FinalProject on YouTube](https://www.youtube.com/watch?v=nXy6tBeNWLU)
     - High-level overview of what our app is doing 
     - Diagram review
     - Review of requirements
