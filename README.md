@@ -27,7 +27,11 @@
     - Review of requirements
     - Demostration of application at work
 
-## Running the application
+
+## Test the application live
+- Live Test Instance: [http://mpdl.pythonanywhere.com/](http://mpdl.pythonanywhere.com/)
+
+## Running the application locally
 - Download the code from github
 - Prepare environment
   - Switch to environment using python version >3.6.0
