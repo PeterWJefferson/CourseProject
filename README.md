@@ -25,7 +25,7 @@
     - High-level overview of what our app is doing 
     - Diagram review
     - Review of requirements
-    - Demostration of application at work
+    - Demonstration of application at work
 
 
 ## Test the application live
