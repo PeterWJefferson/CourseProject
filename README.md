@@ -29,7 +29,7 @@
 
 
 ## Test the application live
-- Live Test Instance: [http://mpdl.pythonanywhere.com/](http://mpdl.pythonanywhere.com/)
+- Live Test Instance (live until April 17, 2023): [http://mpdl.pythonanywhere.com/](http://mpdl.pythonanywhere.com/)
 
 ## Running the application locally
 - Download the code from github
